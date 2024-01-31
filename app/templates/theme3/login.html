@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="manifest" href="manifest.json?appver=740">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="apple-touch-icon" sizes="180x180" href="app/images/icon.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <title>MacroERP</title>
+        
+        {LIBRARIES}
+        {HEAD}
+            
+        <link href="app/lib/include/admin.min.css?appver=740" rel="stylesheet" type="text/css" media="screen">
+        <link rel="stylesheet" href="app/templates/{template}/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="app/templates/{template}/css/skins/_all-skins.min.css">
+    
+    {LIBRARIES}
+    {HEAD}
+    
+    <link href="app/lib/include/admin.min.css?appver=750" rel="stylesheet" type="text/css" media="screen">
+    <link rel="stylesheet" href="app/templates/{template}/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+   <link rel="stylesheet" href="app/templates/{template}/css/skins/_all-skins.min.css">
+   
+    <script>
+    $(function() {
+        __adianti_set_name('{application}');
+        __adianti_set_language('{lang}');
+        __adianti_set_debug({debug});
+    });
+    </script>
+        <style>
+        #home .card-header {
+
+            box-shadow: 0px 0px 0px 0px;
+            background-color: white !important;
+        }
+
+        .panel-heading
+        {
+            margin:auto;
+            text-align:center;
+            border: none;
+        }
+
+        .panel
+        {
+            height: 470px !important;
+        }
+        
+        .panel-heading .panel-title
+        {
+            text-align:center;
+            float:inherit !important;
+        }
+
+        .panel-footer{
+            margin-bottom: 0;
+        }
+
+        .fb-inline-field-container
+        {
+            padding-right: 0 !important;
+            opacity: 0.90 !important;
+            filter: alpha(opacity=90) !important;
+        }
+        </style>
+    </head>
+    <body id="home" style="
+        background: url(app/images/bg-login.png) no-repeat !important; 
+        background-color: white;
+        background-size: cover !important;
+        overflow: auto;
+        padding: 3em;
+        top: 0;
+        ">
+        <!-- <nav class="main-header navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; text-align:center; background-color: #1A9CFF !important; border: none; height: 70px; ">
+            <div class="navbar-header" style="display: inline-block;float:none; width:100%; padding-top: 10px; ">
+                <img src="app/templates/{template}/img/logoMacroERP.png" height="160%" width="20%">
+            </div>
+         
+        </nav> -->
+        
+        <div class="wobble animated" id="wrapper" style="width:90%;margin:auto;margin-top:10px">
+            <div id="adianti_div_content"></div>
+            <div id="adianti_online_content"></div>
+            <div id="adianti_online_content2"></div>
+            
+        </div>
+        <!-- <a class="little-float-button bg-yellow" title="PHP Modules" href="index.php?class=SystemModulesCheckView" style="pointer-events: auto;">
+            <i class="fa fa-cog internal-float-button"></i>
+        </a> -->
+        <!-- <video muted="muted" autoplay loop class="bg_video" id="video">
+        <source src="app/templates/theme3/videos/bg.mp4" type="video/mp4"> -->
+    </body>
+</html>

@@ -1,0 +1,179 @@
+<!-- [main] -->
+<body class="hold-transition skin-blue sidebar-mini">
+    <h2>
+      KPI's do Financeiro
+    </h2>
+    <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><p style="color: grey;font-size: 18px;">Indicadores de KPI's baseado no <b>período filtrado</b>.</p><hr></div></div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-thumbs-up"></i></span>
+    
+            <div class="info-box-content">
+              <span class="info-box-text">Total Faturado</span>
+              <span class="info-box-number">R$ {$totalReceitas}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+    
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="far fa-thumbs-down"></i></span>
+    
+            <div class="info-box-content">
+              <span class="info-box-text">Total de Despesas Pagas</span>
+              <span class="info-box-number">R$ {$totalDespesas}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+    
+    
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+    
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-silver"><i class="far fa-money-bill-alt"></i></span>
+    
+            <div class="info-box-content">
+              <span class="info-box-text">A RECEBER NÃO FATURADO</span>
+              <span class="info-box-number">R$ {$totalPrevisionadoReceita}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+    
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="far fa-clock"></i></span>
+    
+            <div class="info-box-content">
+              <span class="info-box-text">DESPESAS PREVISIONADAS</span>
+              <span class="info-box-number">R$ {$totalPrevisionadoDespesa}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>    
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        {$chart1}
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        {$chart2}
+      </div>
+    </div>
+    <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><p style="color: grey; font-size: 18px;"><b>ATENÇÃO:</b> OS Indicadores de KPI's abaixo são baseados no <b>Mês Atual.</b> Esses indicadores <b>não</b> interagem com o filtro.</p><hr></div></div>
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="box-header">
+            <i class="fa fa-th"></i>
+            <h3 class="box-title">Indicadores do mês</h3>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="small-box bg-aqua">
+                  <div class="inner">
+                    <h3>{$contadorDia}<sup style="font-size: 18px"> A RECEBER HOJE</sup></h3>
+                    <p style="font-size: 20px">R$ {$valorDia}</p>
+                  </div>
+                  <div class="icon">
+                    <i class="far fa-money-bill-alt"></i>
+                  </div>
+                  <a href="index.php?class=ContaReceberListHoje" class="small-box-footer">Listagem <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>{$contadorMes}<sup style="font-size: 18px"> A RECEBER ESSE MÊS</sup></h3>
+
+                  <p style="font-size: 20px">R$ {$valorMes}</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-money-bill-alt"></i>
+                </div>
+                <a href="index.php?class=ContaReceberListMes" class="small-box-footer">Listagem <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>{$contadorInadiplencia}<sup style="font-size: 18px"> EM INADIPLÊNCIA</sup></h3>
+  
+                  <p style="font-size: 20px">R$ {$valorInadiplencia}</p>
+                </div>
+                <div class="icon">
+                  <i class="fab fa-optin-monster"></i>
+                </div>
+                <a href="index.php?class=ContaReceberListInadiplentes" class="small-box-footer">Listagem <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>{$contadorCPAtrasadas}<sup style="font-size: 18px"> DESPESAS EM ATRASO</sup></h3>
+  
+                  <p style="font-size: 20px">R$ {$valorCPAtrasadas}</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-receipt"></i>
+                </div>
+                <a href="index.php?class=ContaPagarListAtrasados" class="small-box-footer">Listagem <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="small-box bg-orange">
+                <div class="inner">
+                  <h3>{$contadorCPdia}<sup style="font-size: 18px"> A PAGAR HOJE</sup></h3>
+                  <p style="font-size: 20px">R$ {$valorCPdia}</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-wallet"></i>
+                </div>
+                <a href="index.php?class=ContaPagarListHoje" class="small-box-footer">Listagem <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="small-box bg-purple">
+                <div class="inner">
+                  <h3>{$contadorCPmes}<sup style="font-size: 18px"> A PAGAR ESSE MÊS</sup></h3>
+      
+                  <p style="font-size: 20px">R$ {$valorCPmes}</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-coins"></i>
+                </div>
+                <a href="index.php?class=ContaPagarListMes" class="small-box-footer">Listagem <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+          </div>   
+        </div>
+        <div class="col-sm-6">
+          <div class="box-header">
+            <i class="fa fa-th"></i>
+            <h3 class="box-title">Saldo Bancário</h3>
+          </div>
+          <table class="table table-striped"> 
+            <!--[SALDOS]--> 
+            <tr>
+              <td class="active">{$banco}</td>
+              <td class="success" style="text-align: right">R$ {$value}</td>
+            </tr> 
+            <!--[/SALDOS]-->
+            <tr>
+              <!-- <td class="active"><h4>Total</h4></td>
+              <td class="active" style="text-align: right"><h4>R$ {$countSaldototais}</h4></td> -->
+            </tr>
+        </table>
+        </div>
+      </div>
+</body>
+<!-- [/main] -->

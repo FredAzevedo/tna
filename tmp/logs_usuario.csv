@@ -1,0 +1,14 @@
+id,logdate,usuario,programa,transaction_id,log_year,log_month,log_day
+1,"2023-09-04 19:07:09","Fred Azevedo","System Unit Form",64f6550dc16b9,2023,09,04
+11,"2023-09-06 14:42:00","Fred Azevedo","System User Form",64f8e4180afd1,2023,09,06
+19,"2023-09-06 14:42:56","Fred Azevedo","System User Form",64f8e450a5368,2023,09,06
+27,"2023-09-06 14:48:20","Thainara Cunha","System Profile Form",64f8e594c1e65,2023,09,06
+28,"2023-09-08 13:32:28","Luciene Cunha","System Unit Form",64fb76cc46499,2023,09,08
+35,"2023-09-08 13:32:39","Luciene Cunha","System Unit Form",64fb76d719ec1,2023,09,08
+39,"2023-11-06 12:55:11","Luciene Cunha","Cliente Form",6549368f6e996,2023,11,06
+48,"2023-11-15 15:28:47","Fred Azevedo","System User Form",65550ddf3168e,2023,11,15
+56,"2023-11-15 15:29:30","Fred Azevedo","System User List",65550e0ac5385,2023,11,15
+64,"2023-11-15 15:30:13","Fred Azevedo","System User Form",65550e35ba123,2023,11,15
+68,"2023-12-22 07:58:12","Luciene Cunha","Cliente Form",65856bc472b84,2023,12,22
+81,"2023-12-22 08:01:57","Luciene Cunha","Cliente Form",65856ca5ec4d2,2023,12,22
+93,"2024-01-04 11:56:55",,,6596c736ec4d2,2024,01,04

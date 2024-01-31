@@ -1,0 +1,4 @@
+unit_id,conta_bancaria_id,valor_movimentacao,data_baixa,data_vencimento,historico
+1,2,-2.60,2023-11-14,2023-11-11,"Taxa PJbank Ref. CR. Nº: 12"
+1,1,0.00,2023-09-04,2023-09-04,"Saldos Iniciais de Implantação de Software"
+1,2,10.00,2023-11-14,2023-11-13,"testando o boleto avulso"

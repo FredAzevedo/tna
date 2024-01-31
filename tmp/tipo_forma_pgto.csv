@@ -1,0 +1,13 @@
+id,nome,regra,parcela,valor_minimo,created_at,updated_at,deleted_at
+1,"01 PARCELA",vencimento;1;mensal,1,0.00,"2023-11-01 07:46:22","2023-11-01 07:49:32",
+2,"02 PARCELAS",vencimento;2;mensal,2,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",
+3,"03 PARCELAS",vencimento;3;mensal,3,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",
+4,"04 PARCELAS",vencimento;4;mensal,4,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",
+5,"05 PARCELAS",vencimento;5;mensal,5,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",
+6,"06 PARCELAS",vencimento;6;mensal,6,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",
+7,"07 PARCELAS",vencimento;7;mensal,7,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",
+8,"08 PARCELAS",vencimento;8;mensal,8,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",
+9,"09 PARCELAS",vencimento;9;mensal,9,0.00,"2023-11-01 07:46:22","2023-11-01 07:49:52",
+10,"10 PARCELAS",vencimento;10;mensal,10,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",
+11,"11 PARCELAS",vencimento;11;mensal,11,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",
+12,"12 PARCELAS",vencimento;12;mensal,12,0.00,"2023-11-01 07:46:22","2023-11-01 07:46:22",

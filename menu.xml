@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+  <menuitem label="Gestão Escolar">
+    <icon>fas:graduation-cap fas-fw</icon>
+    <menu>
+      <menuitem label="Aluno">
+        <icon>fas:address-book fas-fw</icon>
+        <action>AlunoList</action>
+      </menuitem>
+      <menuitem label="Ano Letivo">
+        <icon>fas:table fas-fw</icon>
+        <action>AnoLetivoList</action>
+      </menuitem>
+      <menuitem label="Disciplina">
+        <icon>fas:diagnoses fas-fw</icon>
+        <action>DisciplinaList</action>
+      </menuitem>
+      <menuitem label="Série">
+        <icon>fas:sort-numeric-up-alt fas-fw</icon>
+        <action>SerieList</action>
+      </menuitem>
+      <menuitem label="Turma">
+        <icon>fas:house-user fas-fw</icon>
+        <action>TurmaList</action>
+      </menuitem>
+      <menuitem label="Turno">
+        <icon>fas:clock fas-fw</icon>
+        <action>TurnoList</action>
+      </menuitem>
+      <menuitem label="Apontamentos">
+        <icon>fas:book-reader fas-fw</icon>
+        <action>FiltroApontamento</action>
+      </menuitem>
+      <menuitem label="Responsável">
+        <icon>fa:users fa-fw</icon>
+        <action>ResponsavelList</action>
+      </menuitem>
+      <menuitem label="Gestão de Contratos">
+        <icon>fa:list fa-fw</icon>
+        <action>AlunoContratoList</action>
+      </menuitem>
+      <menuitem label="Gestão de Relatórios">
+        <icon>fa:file fa-fw</icon>
+        <action>RelatorioCustomizadoList</action>
+      </menuitem>
+    </menu>
+  </menuitem>
+  <menuitem label="Financeiro">
+    <icon>fas:dollar-sign fa-fw</icon>
+    <menu>
+      <menuitem label="Dashboard Financeiro">
+        <icon>fa:signal fa:fw</icon>
+        <action>DashboardFinanceiroView</action>
+      </menuitem>
+      <menuitem label="Clientes">
+        <icon>fa:user fa-fw</icon>
+        <action>ClienteList</action>
+      </menuitem>
+      <menuitem label="Fornecedores">
+        <icon>fa:book fa-fw</icon>
+        <action>FornecedorList</action>
+      </menuitem>
+      <menuitem label="Bancos">
+        <icon>fa:university fa-fw</icon>
+        <action>BancoFormList</action>
+      </menuitem>
+      <menuitem label="Contas Bancárias">
+        <icon>fa:university fa-fw</icon>
+        <action>ContaBancariaList</action>
+      </menuitem>
+      <menuitem label="Plano de Contas">
+        <icon>fa:th-list fa-fw</icon>
+        <action>PlanoDeContas</action>
+      </menuitem>
+      <menuitem label="Centro de Custos">
+        <icon>fa:th-list fa-fw</icon>
+        <action>CentroCustoFormList</action>
+      </menuitem>
+      <menuitem label="Departamentos">
+        <icon>fa:building fa-fw</icon>
+        <action>DepartamentoFormList</action>
+      </menuitem>
+      <menuitem label="Contas a Pagar">
+        <icon>far:credit-card fa-fw</icon>
+        <action>ContaPagarList</action>
+      </menuitem>
+      <menuitem label="Contas a Receber">
+        <icon>far:credit-card fa-fw</icon>
+        <action>ContaReceberList</action>
+      </menuitem>
+      <menuitem label="Movimentação Bancária">
+        <icon>fas:reply fa-fw</icon>
+        <action>MovimentacaoBancariaList</action>
+      </menuitem>
+      <menuitem label="Transferência Bancária">
+        <icon>fas:reply-all fa-fw</icon>
+        <action>TransferenciaBancariaList</action>
+      </menuitem>
+      <menuitem label="Relatórios">
+        <icon>fa:file fa-fw</icon>
+        <action>Relatorios</action>
+      </menuitem>
+      <menuitem label="Gestão de Recibos">
+        <icon>fa:university fa:fw</icon>
+        <action>ReciboList</action>
+      </menuitem>
+      <menuitem label="Regras de Boleto">
+        <icon>fa:university fa:fw</icon>
+        <action>BoletoRegraFormList</action>
+      </menuitem>
+      <menuitem label="Extrato OFX">
+        <icon>fa:university fa:fw</icon>
+        <action>ImportarOfxForm</action>
+      </menuitem>
+      <!-- <menuitem label="Gestão de Cobrança">
+        <icon>fa:briefcase fa-fw</icon>
+        <action>GestaoCobrancaList</action>
+      </menuitem> -->
+      <menuitem label="Gestão de Boletos">
+        <icon>fa:briefcase fa-fw</icon>
+        <action>BoletoApiList</action>
+      </menuitem>
+      <menuitem label="Gestão de Carnês">
+        <icon>fa:briefcase fa-fw</icon>
+        <action>BoletoCarneList</action>
+      </menuitem>
+    </menu>
+  </menuitem>
+  <menuitem label="Fiscal">
+    <icon>fa:book fa-fw</icon>
+    <menu>
+      <menuitem label="NFS-e">
+        <icon>far:sun fa-fw</icon>
+        <menu>
+          <menuitem label="NFS-e">
+            <icon>far:file-code fa-fw</icon>
+            <action>NfseList</action>
+          </menuitem>
+          <menuitem label="Parâmetros">
+            <icon>far:file-code fa-fw</icon>
+            <action>NfseParametroList</action>
+          </menuitem>
+          <menuitem label="Tipo de Dedução">
+            <icon>fas:arrows-alt fa-fw</icon>
+            <action>NfseTipodeducaoFormList</action>
+          </menuitem>
+          <menuitem label="Exigibilidade">
+            <icon>fab:sellcast fa-fw</icon>
+            <action>NfseExigibilidadeFormList</action>
+          </menuitem>
+          <menuitem label="Tipo de Tributação">
+            <icon>fa:bullseye fa-fw</icon>
+            <action>NfseTipotributacaoFormList</action>
+          </menuitem>
+          <menuitem label="Cód. de Atividades">
+            <icon>fa:signal fa-fw</icon>
+            <action>NfseCodigoAtividadesFormList</action>
+          </menuitem>
+          <menuitem label="Cód. de Serviços">
+            <icon>fas:chart-area fa-fw</icon>
+            <action>NfseCodigoServicosFormList</action>
+          </menuitem>
+        </menu>
+      </menuitem>
+    </menu>
+  </menuitem>
+
+    <menuitem label="Atendimento">
+    <icon>fa:book fa-fw</icon>
+    <menu>
+      <menuitem label="Atendimento">
+        <icon>far:sun fa-fw</icon>
+        <action>AtendimentoList</action>
+      </menuitem>
+      <menuitem label="Tipo de Atendimento">
+        <icon>far:sun fa-fw</icon>
+        <action>AtendimentoTipoList</action>
+      </menuitem>
+      <menuitem label="Item de Atendimento">
+        <icon>far:sun fa-fw</icon>
+        <action>AtendimentoTipoItemList</action>
+      </menuitem>
+    </menu>
+  </menuitem>
+  <menuitem label="_t{Administration}">
+    <icon>fa:university fa-fw</icon>
+    <menu>
+    <menuitem label='Dashboard'>
+          <icon>fas:tachometer-alt fa-fw</icon>
+          <action>SystemAdministrationDashboard</action>
+      </menuitem>
+      <menuitem label="_t{Programs}">
+        <icon>far:file-code fa-fw</icon>
+        <action>SystemProgramList</action>
+      </menuitem>
+      <menuitem label="_t{Groups}">
+        <icon>fa:users fa-fw</icon>
+        <action>SystemGroupList</action>
+      </menuitem>
+      <menuitem label='_t{Roles}'>
+          <icon>fas:user-tag fa-fw</icon>
+          <action>SystemRoleList</action>
+      </menuitem>
+      <menuitem label="_t{Units}">
+        <icon>fa:university fa-fw</icon>
+        <action>SystemUnitList</action>
+      </menuitem>
+      <menuitem label="_t{Users}">
+        <icon>fa:user fa-fw</icon>
+        <action>SystemUserList</action>
+      </menuitem>
+      <menuitem label='_t{Contacts}'>
+          <icon>far:address-card fa-fw</icon>
+          <action>SystemContactsList</action>
+      </menuitem>
+      <menuitem label="_t{Database explorer}">
+        <icon>fa:database fa-fw</icon>
+        <action>SystemDatabaseExplorer</action>
+      </menuitem>
+      <menuitem label="_t{SQL Panel}">
+        <icon>fa:table fa-fw</icon>
+        <action>SystemSQLPanel</action>
+      </menuitem>
+      <menuitem label="PHP Info">
+        <icon>fa:info-circle fa-fw</icon>
+        <action>SystemPHPInfoView</action>
+      </menuitem>
+      <menuitem label="PHP Modules">
+        <icon>fa:info-circle fa-fw</icon>
+        <action>SystemModulesCheckView</action>
+      </menuitem>
+      <menuitem label="_t{Preferences}">
+        <icon>fa:cog fa-fw</icon>
+        <action>SystemPreferenceForm#method=onEdit</action>
+      </menuitem>
+     <menuitem label='API de Integrações'>
+        <icon>fas:cog fa-fw</icon>
+        <action>ApiIntegracaoList</action>
+     </menuitem>
+     <menuitem label='_t{Files diff}'>
+          <icon>fas:file-medical-alt fa-fw</icon>
+          <action>SystemFilesDiff</action>
+      </menuitem>
+    </menu>
+  </menuitem>
+  <menuitem label="Logs">
+    <icon>fa:desktop fa-fw</icon>
+    <menu>
+      <menuitem label="_t{Access Stats}">
+        <icon>far:chart-bar fa-fw</icon>
+        <action>SystemAccessLogStats</action>
+      </menuitem>
+      <menuitem label="_t{Access Log}">
+        <icon>fa:key fa-fw</icon>
+        <action>SystemAccessLogList</action>
+      </menuitem>
+      <menuitem label="_t{Change Log}">
+        <icon>fa:film fa-fw</icon>
+        <action>SystemChangeLogView</action>
+      </menuitem>
+      <menuitem label="_t{SQL Log}">
+        <icon>fa:database fa-fw</icon>
+        <action>SystemSqlLogList</action>
+      </menuitem>
+      <menuitem label="_t{PHP Log}">
+        <icon>fa:exclamation-triangle fa-fw</icon>
+        <action>SystemPHPErrorLogView</action>
+      </menuitem>
+      <menuitem label="Logs do PagSeguro">
+        <icon>fa:exclamation-triangle fa-fw</icon>
+        <action>ResponsePagSeguro</action>
+      </menuitem>
+      <menuitem label="Logs do PJBank">
+        <icon>fa:exclamation-triangle fa-fw</icon>
+        <action>ResponsePJBankList</action>
+      </menuitem>
+    </menu>
+  </menuitem>
+      <menuitem label="Sair">
+        <action>LoginForm#method=onLogout#static=1</action>
+        <icon>fas:sign-out-alt fa-fw</icon>
+      </menuitem>
+
+</menu>

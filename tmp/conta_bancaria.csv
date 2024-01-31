@@ -1,0 +1,3 @@
+id,cod_banco,agencia,agencia_dv,conta,conta_dv,tipo,cep,logradouro,numero,bairro,complemento,cidade,uf,codMuni,tel_gerente,tel_banco,gerente,data_abaertura,banco_id,aceite,especieDoc,carteira,convenio,codigoCliente,instrucoes1,instrucoes2,instrucoes3,instrucoes4,unit_id,codigo_cooperativa,tipo_remessa,variacaoCarteira,cip,campo_range,contaDv,posto,byte,beneficiario,ultimo_nossonumero,ultima_remessa,representante,conta_moeda_id,pix,created_at,updated_at,deleted_at
+1,000,00000,0,00000,0,J,,,,,,,,,,,CCS,2023-09-04,1,N,,,,,,,,,1,,,,,,,,,,,,,1,,"2023-09-04 16:15:16","2023-09-04 16:15:16",
+2,104-0,2010,0,406,0,J,,,,,,,,,,,,,2,N,,,,,,,,,1,,,,,,,,,,,,,1,,"2023-09-04 16:16:37","2023-09-04 16:16:37",

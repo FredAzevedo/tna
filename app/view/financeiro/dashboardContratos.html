@@ -1,0 +1,199 @@
+<!-- [main] -->
+<div class="row" style="padding-top: 10px;">
+  <div class="col-md-3 col-sm-12 col-xs-12"><h4>Indicadores de Contratos</h4></div>  
+  <!-- <div class="col-md-3 col-sm-6 col-xs-12">{$mes}</div> -->
+</div>
+<div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><p style="color: grey;">Indicadores de Contratos baseado em todo período.</p><hr></div></div>
+<div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-aqua"><i class="fa fa-thumbs-up"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Ativos</span>
+          <span class="info-box-number">{$contratoAtivo}</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-red"><i class="fa fa-window-close"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Cancelados</span>
+          <span class="info-box-number">{$contratoCancelado}</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+
+
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Dependentes</span>
+          <span class="info-box-number">{$contratoDependente}</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-yellow"><i class="fa fa-ban"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Suspensos</span>
+          <span class="info-box-number">{$contratoSuspenso}</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+
+</div>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <h4>Indicadores de Boletos</h4>
+    <p style="color: grey;">Indicadores de Boletos baseado no mês atual.</p>
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box bg-aqua">
+      <span class="info-box-icon"><i class="fa fa-cogs"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text" style="color: aliceblue;">Boletos Emitidos</span>
+        <span class="info-box-number">{$boletosEmitidos}</span>
+
+        <!-- <div class="progress">
+          <div class="progress-bar" style="width: 100%"></div>
+        </div> -->
+        <span class="progress-description">
+          R$ number_format({$boletosEmitidosValor}, 2, ',', '.')
+        </span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box bg-green">
+      <span class="info-box-icon"><i class="fa fa-check"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text" style="color: aliceblue;">Boletos Pagos</span>
+        <span class="info-box-number">{$boletosPagos}</span>
+
+        <!-- <div class="progress">
+          <div class="progress-bar" style="width: 100%"></div>
+        </div> -->
+        <span class="progress-description">
+            R$ number_format({$boletosPagosValor}, 2, ',', '.')
+            </span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+  </div>
+
+  <div class="clearfix visible-sm-block"></div>
+    
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box bg-yellow">
+      <span class="info-box-icon"><i class="fa fa-clock"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text" style="color: aliceblue;">Boletos em Aberto</span>
+        <span class="info-box-number">{$boletosEmAbertos}</span>
+
+        <span class="progress-description">
+            R$ 	number_format({$boletosEmAbertosValor}, 2, ',', '.')
+            </span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box bg-red">
+      <span class="info-box-icon"><i class="fa fa-calculator"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text" style="color: aliceblue;">Tarifas Pagas</span>
+        <span class="info-box-number">{$boletosPagos}</span>
+
+        <span class="progress-description">
+              R$ 	number_format({$boletosPagosTaxa}, 2, ',', '.')
+            </span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-6">
+    {$chart1}
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-6">
+    {$chart2}
+  </div>
+</div>
+<div class="row" style="padding-top: 10px;">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <h4>Cartões de crédito próximos a se vencer</h4>
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <!-- <h3 class="box-title">Latest Orders</h3> -->
+
+        <div class="box-tools pull-right">
+          <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button> -->
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="table-responsive">
+          <table class="table no-margin">
+            <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Telefone</th>
+              <th>Contrato</th>
+              <th>Mês de Vencimento</th>
+              <th>Ano de Vencimento</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--[CARTOES]--> 
+            <tr>
+              <td>{$cliente}</td>
+              <td>{$telefone}</td>
+              <td>{$contrato}</td>
+              <td>{$mes_vencimento}</td>
+              <td>{$ano_vencimento}</td>
+            </tr>
+            <!--[/CARTOES]--> 
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer clearfix">
+      </div>
+      <!-- /.box-footer -->
+    </div>
+  </div>  
+</div>
+<!-- [/main] -->

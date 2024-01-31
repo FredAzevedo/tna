@@ -1,0 +1,4 @@
+id,comment,system_user_id,system_post_id,created_at
+1,"My first comment",1,2,"2022-11-03 15:22:11"
+2,"Another comment",1,2,"2022-11-03 15:22:17"
+3,"The best comment",2,2,"2022-11-03 15:23:11"

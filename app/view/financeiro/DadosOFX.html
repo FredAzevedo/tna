@@ -1,0 +1,72 @@
+<!-- [main] -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-6">
+			<h4><b>Banco:</b> {$banco}</h4>
+		</div>
+		<div class="col-lg-6">
+			<h4><b>Conta:</b> {$conta}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<h4><b>Data Início:</b> {$dataini}</h4>
+		</div>
+		<div class="col-lg-6">
+			<h4><b>Data Fim:</b> {$datafim}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="panel-danger">
+			  	<div class="panel-heading">SAÍDAS <h3>Total: <span class="label label-danger">R$ {$somaDespesa}</span></h3></div>
+			  	<div class="panel-body">
+			  		<table class="table table-striped table-hover dataTable no-footer dtr-inline">
+				  			<thead>
+						    <tr>
+						      	<th scope="col">Data</th>
+						      	<th scope="col">Valor</th>
+						      	<th scope="col">Descrição</th>
+						    </tr>
+						    </thead>
+						    <tbody>
+						     <!--[saidas]-->
+						    <tr>
+						      	<td>{$data}</td>
+						      	<td>{$valor}</td>
+						      	<td>{$descricao}</td>
+						    </tr>
+						     <!--[/saidas]-->
+						  </tbody>
+			  		</table>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="panel-success">
+			 	<div class="panel-heading">ENTRADAS <h3>Total: <span class="label label-primary">R$ {$somaReceita}</span></h3></div>
+			  	<div class="panel-body">
+			  		<table class="table table-striped table-hover dataTable no-footer dtr-inline">
+			  			<thead>
+						    <tr>
+						      	<th scope="col">Data</th>
+						      	<th scope="col">Valor</th>
+						      	<th scope="col">Descrição</th>
+						    </tr>
+						    </thead>
+						    <tbody>
+						     <!--[entradas]-->
+						    <tr>
+						      	<td>{$data}</td>
+						      	<td>{$valor}</td>
+						      	<td>{$descricao}</td>
+						    </tr>
+						     <!--[/entradas]-->
+						  </tbody>
+			  		</table>
+		  	 	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- [main] -->

@@ -1,0 +1,88 @@
+<!-- [main] -->
+<script type="text/javascript">
+    $("input").attr('class', 'form-control');
+</script>
+{$container}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tab-content">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="box-header with-border">
+                                <h4 class="box-title">Receitas</h4>
+                                <!-- <div class="box-tools pull-right"> -->
+                                    <a href="index.php?class=PcReceitaForm" ><span class="label label-primary">Novo</span></a>
+                                <!-- </div> -->
+                                <!-- /.box-tools -->
+                            </div>
+                            <!-- /.box-header -->
+
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class=" col-md-12">
+                                        {$receitas}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"
+                <div class="tab-content">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="box-header with-border">
+                                <h4 class="box-title">Despesas</h4>
+                                <!-- <div class="box-tools pull-right"> -->
+                                    <a href="index.php?class=PcDespesaForm" ><span class="label label-primary">Novo</span></a>
+                                <!-- </div> -->
+                                <!-- /.box-tools -->
+                            </div>
+                            <!-- /.box-header -->
+
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class=" col-md-12">
+                                        {$despesas}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="panel panel-default">
+            <div class="panel-body">
+                <div class="box-header with-border">
+                    <div class="box-tools pull-right">
+                        &lt;!&ndash;<a href="/unidades" ><span class="label labelbel-primary"></span></a>&ndash;&gt;
+                    </div>
+                    &lt;!&ndash; /.box-tools &ndash;&gt;
+                </div>
+                &lt;!&ndash; /.box-header &ndash;&gt;
+                <div class="box-body">
+                    <div class="row">
+                        <div class=" col-md-1">
+                            {$back_button}
+                        </div>
+                        <div class=" col-md-1">
+                            {$new_button}
+                        </div>
+                        <div class=" col-md-1">
+                            &lt;!&ndash; <button class="btn label-success">Salvar</button> &ndash;&gt;
+                            {$save_button}
+                        </div>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<!-- [/main] -->

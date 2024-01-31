@@ -1,0 +1,91 @@
+<!-- [main] -->
+<script type="text/javascript">
+    $("input").attr('class', 'form-control');
+    /*$("select").attr('class', 'form-control');*/
+    $('input[type=checkbox]').attr('class', 'flat-red');
+</script>
+{$container}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="tab-content">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="box-header with-border">
+                        <h4 class="box-title">Plano de Conta Receita</h4>
+                        <div class="box-tools pull-right">
+                            <!--<a href="/unidades" ><span class="label label-primary">Voltar</span></a>-->
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class=" col-md-2">
+                                <label for="id">ID:</label>
+                                {$id}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="unit_id">Unidade:</label>
+                                {$unit_id}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" col-md-3">
+                                <label for="nivel1">1º Nível:</label>
+                                {$nivel1}
+                            </div>
+                            <div class=" col-md-3">
+                                <label for="nivel2">2º Nível:</label>
+                                {$nivel2}
+                            </div>
+                            <div class=" col-md-3">
+                                <label for="nivel3">3º Nível:</label>
+                                {$nivel3}
+                            </div>
+                            <div class=" col-md-3">
+                                <label for="nivel4">4º Nível:</label>
+                                {$nivel4}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="nome">Nome do plano:</label>
+                                {$nome}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="box-header with-border">
+                    <div class="box-tools pull-right">
+                        <!--<a href="/unidades" ><span class="label labelbel-primary"></span></a>-->
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class=" col-md-1">
+                            {$back_button}
+                        </div>
+                        <div class=" col-md-1">
+                            {$new_button}
+                        </div>
+                        <div class=" col-md-1">
+                            <!-- <button class="btn label-success">Salvar</button> -->
+                            {$save_button}
+                        </div>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [/main] -->

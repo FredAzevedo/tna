@@ -1,0 +1,94 @@
+<!--[main]--> 
+{$script}
+<div class="container">
+    <h2> Pagamento Recorrente </h2>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-sm-3">
+                <label for="cartao">Número do Cartão</label>
+                <!-- OBRIGATÓRIO UM CAMPO COM O ID pagseguro_cartao_numero-->
+                <input type="text" id="pagseguro_cartao_numero" class="form-control" />
+            </div>
+            <div class="col-sm-3">
+                <label for="numero-cartao">CVV do cartão</label>
+                <!-- OBRIGATÓRIO UM CAMPO COM O ID pagseguro_cartao_cvv-->
+                <input type="text" id="pagseguro_cartao_cvv" class="form-control" />
+            </div>
+        </div>
+        <div>
+            <div class="col-sm-4">
+                <img src="../app/images/logo-pagseguro-2.png" class="img-rounded" style="width:50%">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-sm-3">
+                <label for="mes">Mês de expiração do Cartao</label>
+                <!-- OBRIGATÓRIO UM CAMPO COM O ID pagseguro_cartao_mes-->
+                <input type="text" id="pagseguro_cartao_mes" class="form-control" />
+            </div>
+            <div class="col-sm-3">
+                <label for="ano">Ano de Expiração do Cartão</label>
+                <!-- OBRIGATÓRIO UM CAMPO COM O ID pagseguro_cartao_ano-->
+                <input type="text" id="pagseguro_cartao_ano" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <p style="text-align: justify;"><b>Atenção</b>. Os dados do cartão <b>NÃO</b> ficam salvos nesse sistema. Aguarde a aprovação do cartão antes de liberar o cliente, sendo assim há necessidade de após clicar no botão <b>Vender</b> e salvar o <b>Número de Aprovação</b> de compra.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <p><b>PLANO:</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <p><b>VALOR:</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="ano"></label>
+            </div>
+            <div class="form-group">
+                <button id="botao_comprar" class="btn btn-primary">Vender</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    //Gera os conteúdos necessários
+    $('#botao_comprar').click(function() {
+        PagSeguroBuscaHashCliente(); //Cria o Hash identificador do Cliente usado na transição
+        PagSeguroBuscaBandeira();   //Através do pagseguro_cartao_numero do cartão busca a bandeira
+        PagSeguroBuscaToken();      //Através dos 4 campos acima gera o Token do cartão  
+        setTimeout(function() {
+            enviarPedido();
+        }, 3000);
+    });
+
+    function enviarPedido() {
+        /** FAÇA O QUE QUISER DAQUI PARA BAIXO **/
+        alert($('#pagseguro_cliente_hash').val())
+        alert($('#pagseguro_cartao_token').val())
+        
+        var data = {
+            hash:  $('#pagseguro_cliente_hash').val(),
+            token: $('#pagseguro_cartao_token').val()
+        };
+        
+        $.post('engine.php?class=PagSeguroForm&method=onFinish&static=1', data, function(response) {
+            alert(response);
+        });
+    }
+</script>
+<!--[/main]-->
