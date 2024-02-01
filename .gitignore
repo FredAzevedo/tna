@@ -6,6 +6,5 @@ app/config/sample.ini
 app/config/log.ini
 app/config/permission.ini
 app/config/communication.ini
-app/imagens/*
 app/service/pedido/*
 app/images/*
