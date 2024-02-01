@@ -7,4 +7,3 @@ app/config/log.ini
 app/config/permission.ini
 app/config/communication.ini
 app/service/pedido/*
-app/images/*
