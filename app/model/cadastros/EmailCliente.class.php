@@ -1,7 +1,5 @@
 <?php
 
-use Adianti\Database\TRecord;
-
 class EmailCliente extends TRecord
 {
     const TABLENAME = 'emails_cliente';

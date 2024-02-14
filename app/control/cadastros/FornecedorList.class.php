@@ -1,4 +1,8 @@
 <?php
+use Adianti\Widget\Wrapper\TDBCombo;
+use Adianti\Widget\Wrapper\TDBMultiSearch;
+use Adianti\Widget\Wrapper\TDBSeekButton;
+use Adianti\Widget\Wrapper\TDBUniqueSearch;
 /**
  * FornecedorList Listing
  * @author  Fred Aze.
@@ -26,7 +30,8 @@ class FornecedorList extends TPage
         
 
         // create the form fields
-        $nome_fantasia = new TEntry('nome_fantasia');
+        $nome_fantasia = new TDBUniqueSearch('nome_fantasia','sample','Fornecedor','nome_fantasia','nome_fantasia');
+        $razao_social = new TDBUniqueSearch('razao_social','sample','Fornecedor','razao_social','razao_social');
         $cpf_cnpj = new TEntry('cpf_cnpj');
         $cidade = new TEntry('cidade');
         $uf = new TEntry('uf');
@@ -44,6 +49,9 @@ class FornecedorList extends TPage
                                        [ new TLabel('UF'), $uf ],
                                        [ new TLabel('Parceria?'), $parceria ]);
         $row->layout = ['col-sm-4', 'col-sm-2', 'col-sm-3', 'col-sm-1', 'col-sm-2'];
+
+        $row = $this->form->addFields( [ new TLabel('Razão Solcial'), $razao_social ]);
+        $row->layout = ['col-sm-4'];
     
         // set sizes
         $nome_fantasia->setSize('100%');
@@ -73,6 +81,7 @@ class FornecedorList extends TPage
         // creates the datagrid columns
         $column_id = new TDataGridColumn('id', 'ID', 'right');
         $column_nome_fantasia = new TDataGridColumn('nome_fantasia', 'Nome Fantasia', 'left');
+        $column_razao_social = new TDataGridColumn('razao_social', 'Razão Social', 'left');
         $column_cpf_cnpj = new TDataGridColumn('cpf_cnpj', 'CPF/CNPJ', 'left');
         $column_cidade = new TDataGridColumn('cidade', 'Cidade', 'left');
         $column_uf = new TDataGridColumn('uf', 'UF', 'left');
@@ -82,6 +91,7 @@ class FornecedorList extends TPage
         // add the columns to the DataGrid
         $this->datagrid->addColumn($column_id);
         $this->datagrid->addColumn($column_nome_fantasia);
+        $this->datagrid->addColumn($column_razao_social);
         $this->datagrid->addColumn($column_cpf_cnpj);
         $this->datagrid->addColumn($column_cidade);
         $this->datagrid->addColumn($column_uf);
@@ -185,6 +195,7 @@ class FornecedorList extends TPage
         
         // clear session filters
         TSession::setValue('FornecedorList_filter_nome_fantasia',   NULL);
+        TSession::setValue('FornecedorList_filter_razao_social',   NULL);
         TSession::setValue('FornecedorList_filter_cpf_cnpj',   NULL);
         TSession::setValue('FornecedorList_filter_cidade',   NULL);
         TSession::setValue('FornecedorList_filter_uf',   NULL);
@@ -195,6 +206,10 @@ class FornecedorList extends TPage
             TSession::setValue('FornecedorList_filter_nome_fantasia',   $filter); // stores the filter in the session
         }
 
+        if (isset($data->razao_social) AND ($data->razao_social)) {
+            $filter = new TFilter('razao_social', 'like', "%{$data->razao_social}%"); // create the filter
+            TSession::setValue('FornecedorList_filter_razao_social',   $filter); // stores the filter in the session
+        }
 
         if (isset($data->cpf_cnpj) AND ($data->cpf_cnpj)) {
             $filter = new TFilter('cpf_cnpj', 'like', "%{$data->cpf_cnpj}%"); // create the filter
@@ -252,10 +267,12 @@ class FornecedorList extends TPage
             if (empty($param['order']))
             {
                 $param['order'] = 'id';
-                $param['direction'] = 'asc';
+                $param['direction'] = 'desc';
             }
             $criteria->setProperties($param); // order, offset
             $criteria->setProperty('limit', $limit);
+
+            $criteria->add(new TFilter('unit_id',  '=', TSession::getValue('userunitid')));
             
             TSession::setValue('FornecedorList', parse_url($_SERVER['REQUEST_URI']));
             
@@ -263,6 +280,9 @@ class FornecedorList extends TPage
                 $criteria->add(TSession::getValue('FornecedorList_filter_nome_fantasia')); // add the session filter
             }
 
+            if (TSession::getValue('FornecedorList_filter_razao_social')) {
+                $criteria->add(TSession::getValue('FornecedorList_filter_razao_social')); // add the session filter
+            }
 
             if (TSession::getValue('FornecedorList_filter_cpf_cnpj')) {
                 $criteria->add(TSession::getValue('FornecedorList_filter_cpf_cnpj')); // add the session filter

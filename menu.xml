@@ -3,38 +3,6 @@
   <menuitem label="Gestão Escolar">
     <icon>fas:graduation-cap fas-fw</icon>
     <menu>
-      <menuitem label="Aluno">
-        <icon>fas:address-book fas-fw</icon>
-        <action>AlunoList</action>
-      </menuitem>
-      <menuitem label="Ano Letivo">
-        <icon>fas:table fas-fw</icon>
-        <action>AnoLetivoList</action>
-      </menuitem>
-      <menuitem label="Disciplina">
-        <icon>fas:diagnoses fas-fw</icon>
-        <action>DisciplinaList</action>
-      </menuitem>
-      <menuitem label="Série">
-        <icon>fas:sort-numeric-up-alt fas-fw</icon>
-        <action>SerieList</action>
-      </menuitem>
-      <menuitem label="Turma">
-        <icon>fas:house-user fas-fw</icon>
-        <action>TurmaList</action>
-      </menuitem>
-      <menuitem label="Turno">
-        <icon>fas:clock fas-fw</icon>
-        <action>TurnoList</action>
-      </menuitem>
-      <menuitem label="Apontamentos">
-        <icon>fas:book-reader fas-fw</icon>
-        <action>FiltroApontamento</action>
-      </menuitem>
-      <menuitem label="Responsável">
-        <icon>fa:users fa-fw</icon>
-        <action>ResponsavelList</action>
-      </menuitem>
       <menuitem label="Gestão de Contratos">
         <icon>fa:list fa-fw</icon>
         <action>AlunoContratoList</action>
@@ -123,62 +91,6 @@
       <menuitem label="Gestão de Carnês">
         <icon>fa:briefcase fa-fw</icon>
         <action>BoletoCarneList</action>
-      </menuitem>
-    </menu>
-  </menuitem>
-  <menuitem label="Fiscal">
-    <icon>fa:book fa-fw</icon>
-    <menu>
-      <menuitem label="NFS-e">
-        <icon>far:sun fa-fw</icon>
-        <menu>
-          <menuitem label="NFS-e">
-            <icon>far:file-code fa-fw</icon>
-            <action>NfseList</action>
-          </menuitem>
-          <menuitem label="Parâmetros">
-            <icon>far:file-code fa-fw</icon>
-            <action>NfseParametroList</action>
-          </menuitem>
-          <menuitem label="Tipo de Dedução">
-            <icon>fas:arrows-alt fa-fw</icon>
-            <action>NfseTipodeducaoFormList</action>
-          </menuitem>
-          <menuitem label="Exigibilidade">
-            <icon>fab:sellcast fa-fw</icon>
-            <action>NfseExigibilidadeFormList</action>
-          </menuitem>
-          <menuitem label="Tipo de Tributação">
-            <icon>fa:bullseye fa-fw</icon>
-            <action>NfseTipotributacaoFormList</action>
-          </menuitem>
-          <menuitem label="Cód. de Atividades">
-            <icon>fa:signal fa-fw</icon>
-            <action>NfseCodigoAtividadesFormList</action>
-          </menuitem>
-          <menuitem label="Cód. de Serviços">
-            <icon>fas:chart-area fa-fw</icon>
-            <action>NfseCodigoServicosFormList</action>
-          </menuitem>
-        </menu>
-      </menuitem>
-    </menu>
-  </menuitem>
-
-    <menuitem label="Atendimento">
-    <icon>fa:book fa-fw</icon>
-    <menu>
-      <menuitem label="Atendimento">
-        <icon>far:sun fa-fw</icon>
-        <action>AtendimentoList</action>
-      </menuitem>
-      <menuitem label="Tipo de Atendimento">
-        <icon>far:sun fa-fw</icon>
-        <action>AtendimentoTipoList</action>
-      </menuitem>
-      <menuitem label="Item de Atendimento">
-        <icon>far:sun fa-fw</icon>
-        <action>AtendimentoTipoItemList</action>
       </menuitem>
     </menu>
   </menuitem>
