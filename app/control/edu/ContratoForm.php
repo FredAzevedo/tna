@@ -2,10 +2,10 @@
 
 use Carbon\Carbon;
 /**
- * AlunoContratoForm Master/Detail
+ * ContratoForm Master/Detail
  * @author  Fred Azv
  */
-class AlunoContratoForm extends TPage
+class ContratoForm extends TPage
 {
     protected $form; // form
     protected $fieldlist;
@@ -15,15 +15,15 @@ class AlunoContratoForm extends TPage
         parent::__construct($param);
         
         // creates the form
-        $this->form = new BootstrapFormBuilder('form_AlunoContrato');
+        $this->form = new BootstrapFormBuilder('form_Contrato');
         $this->form->setFormTitle('Contrato');
         $this->form->setFieldSizes('100%');
         
         // master fields
         $id = new TEntry('id');
-        $primeiro_responsavel_id = new TDBCombo('primeiro_responsavel_id','sample','Responsavel','id','nome','nome');
+        $primeiro_responsavel_id = new TDBCombo('primeiro_responsavel_id','sample','Cliente','id','nome','nome');
         $primeiro_responsavel_id->enableSearch(10);
-        $segundo_responsavel_id = new TDBCombo('segundo_responsavel_id','sample','Responsavel','id','nome','nome');
+        $segundo_responsavel_id = new TDBCombo('segundo_responsavel_id','sample','Cliente','id','nome','nome');
         $segundo_responsavel_id->enableSearch(10);
         $ano_letivo = new TDBCombo('ano_letivo', 'sample', 'AnoLetivo', 'ano', 'ano','ano desc');
         $prazo_meses = new TEntry('prazo_meses');
@@ -61,7 +61,7 @@ class AlunoContratoForm extends TPage
                                     );
         $row->layout = ['col-sm-2','col-sm-5','col-sm-5'];
 
-        $row = $this->form->addFields( [ new TLabel('Ano Letivo'), $ano_letivo ],
+        $row = $this->form->addFields( [ new TLabel('Ano Recorrente'), $ano_letivo ],
                                        [ ],
                                        [ new TLabel('Prazo Meses'), $prazo_meses ],
                                        [ new TLabel('Prazo Início'), $prazo_inicio ],
@@ -83,23 +83,7 @@ class AlunoContratoForm extends TPage
                                     );
         $row->layout = ['col-sm-2','col-sm-2','col-sm-2','col-sm-2','col-sm-2','col-sm-2'];
         
-        
-        // detail fields
-        $this->fieldlist = new TFieldList;
-        $this->fieldlist-> width = '100%';
-        $this->fieldlist->enableSorting();
 
-        $aluno_id = new TDBUniqueSearch('list_aluno_id[]', 'sample', 'Aluno', 'id', 'nome','nome');
-
-        $aluno_id->setSize('100%');
-
-        $this->fieldlist->addField( '<b>Aluno</b>', $aluno_id, ['width' => '100%']);
-
-        $this->form->addField($aluno_id);
-        
-        $this->form->addFields( [new TFormSeparator('<hr><b>Benificiário (Aluno)</b>') ] );
-        $this->form->addFields( [$this->fieldlist] );
-        
         // create actions
         $this->form->addAction( _t('Save'),  new TAction( [$this, 'onSave'] ),  'fa:save green' );
         $this->form->addAction( 'Voltar', new TAction( [$this, 'onExit'] ), 'fa:arrow-left' );
@@ -117,9 +101,9 @@ class AlunoContratoForm extends TPage
                                     
         TScript::create('calc = function() {
                 
-                let preco_valor_integral = convertToFloatNumber(form_AlunoContrato.preco_valor_integral.value);
-                let preco_parcelas = form_AlunoContrato.preco_parcelas.value;
-                let desconto = convertToFloatNumber(form_AlunoContrato.preco_desconto.value);
+                let preco_valor_integral = convertToFloatNumber(form_Contrato.preco_valor_integral.value);
+                let preco_parcelas = form_Contrato.preco_parcelas.value;
+                let desconto = convertToFloatNumber(form_Contrato.preco_desconto.value);
 
                 if(!desconto && desconto !== 0){
                     desconto = 0;
@@ -130,9 +114,9 @@ class AlunoContratoForm extends TPage
                 let precoParcelaValor = valor_liq / preco_parcelas;
                 let total = precoParcelaValor * preco_parcelas;     
 
-                form_AlunoContrato.preco_parcela_valor.value = formatMoney(precoParcelaValorSemDesconto);
-                form_AlunoContrato.preco_parcela_valor_desconto.value = formatMoney(precoParcelaValor);
-                form_AlunoContrato.preco_valor_total.value = formatMoney(total);
+                form_Contrato.preco_parcela_valor.value = formatMoney(precoParcelaValorSemDesconto);
+                form_Contrato.preco_parcela_valor_desconto.value = formatMoney(precoParcelaValor);
+                form_Contrato.preco_valor_total.value = formatMoney(total);
              
             };    
 
@@ -176,27 +160,8 @@ class AlunoContratoForm extends TPage
             {
                 $key = $param['key'];
                 
-                $object = new AlunoContrato($key);
+                $object = new Contrato($key);
                 $this->form->setData($object);
-                
-                $items  = AlunoContratoBeneficiario::where('aluno_contrato_id', '=', $key)->load();
-                
-                if ($items)
-                {
-                    $this->fieldlist->addHeader();
-                    foreach($items  as $item )
-                    {
-                        $detail = new stdClass;
-                        $detail->list_aluno_id = $item->aluno_id;
-                        $this->fieldlist->addDetail($detail);
-                    }
-                    
-                    $this->fieldlist->addCloneAction();
-                }
-                else
-                {
-                    $this->onClear($param);
-                }
                 
                 TTransaction::close(); // close transaction
 	    }
@@ -223,7 +188,7 @@ class AlunoContratoForm extends TPage
     }
     
     /**
-     * Save the AlunoContrato and the AlunoContratoBeneficiario's
+     * Save the Contrato and the ContratoBeneficiario's
      */
     public static function onSave($param)
     {
@@ -232,7 +197,7 @@ class AlunoContratoForm extends TPage
             TTransaction::open('sample');
      
             $id = (int) $param['id'];
-            $master = new AlunoContrato;
+            $master = new Contrato;
             $master->fromArray( $param);
             $master->preco_valor_integral = Utilidades::to_number($master->preco_valor_integral);
             $master->preco_parcela_valor = Utilidades::to_number($master->preco_parcela_valor);
@@ -244,26 +209,10 @@ class AlunoContratoForm extends TPage
             $master->vencimento_parcela = Carbon::createFromFormat('d/m/Y', $param['vencimento_parcela'])->format('Y-m-d');
             $master->store(); // save master object
             
-            // delete details
-            AlunoContratoBeneficiario::where('aluno_contrato_id', '=', $master->id)->delete();
-            
-            if( !empty($param['list_aluno_id']) AND is_array($param['list_aluno_id']) )
-            {
-                foreach( $param['list_aluno_id'] as $row => $aluno_id)
-                {
-                    if (!empty($aluno_id))
-                    {
-                        $detail = new AlunoContratoBeneficiario;
-                        $detail->aluno_contrato_id = $master->id;
-                        $detail->aluno_id = $param['list_aluno_id'][$row];
-                        $detail->store();
-                    }
-                }
-            }
             
             $data = new stdClass;
             $data->id = $master->id;
-            TForm::sendData('form_AlunoContrato', $data);
+            TForm::sendData('form_Contrato', $data);
             TTransaction::close(); // close the transaction
             
             new TMessage('info', AdiantiCoreTranslator::translate('Record saved'));
@@ -277,14 +226,14 @@ class AlunoContratoForm extends TPage
 
     public function onExit()
     {
-        $result = TSession::getValue('AlunoContratoList');
+        $result = TSession::getValue('ContratoList');
 
         $query = isset($result['query']) ? $result['query'] : null;
 
         if (!empty($query))
         {
             TScript::create("
-                Adianti.waitMessage = 'Listando...';__adianti_post_data('AlunoContratoForm', '$query');                                 
+                Adianti.waitMessage = 'Listando...';__adianti_post_data('ContratoForm', '$query');                                 
         ");
         }
     }

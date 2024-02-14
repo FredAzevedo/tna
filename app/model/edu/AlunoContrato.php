@@ -40,7 +40,7 @@ class AlunoContrato extends TRecord
     }
 
     
-    public function set_primeiro_responsavel(Responsavel $object)
+    public function set_primeiro_responsavel(Cliente $object)
     {
         $this->responsavel = $object;
         $this->primeiro_responsavel_id = $object->id;
@@ -49,12 +49,12 @@ class AlunoContrato extends TRecord
     public function get_primeiro_responsavel()
     {
         if (empty($this->primeiro_responsavel))
-            $this->primeiro_responsavel = new Responsavel($this->primeiro_responsavel_id);
+            $this->primeiro_responsavel = new Cliente($this->primeiro_responsavel_id);
 
         return $this->primeiro_responsavel;
     }
 
-    public function set_segundo_responsavel(Responsavel $object)
+    public function set_segundo_responsavel(Cliente $object)
     {
         $this->responsavel = $object;
         $this->segundo_responsavel_id = $object->id;
@@ -63,7 +63,7 @@ class AlunoContrato extends TRecord
     public function get_segundo_responsavel()
     {
         if (empty($this->segundo_responsavel))
-            $this->segundo_responsavel = new Responsavel($this->segundo_responsavel_id);
+            $this->segundo_responsavel = new Cliente($this->segundo_responsavel_id);
 
         return $this->segundo_responsavel;
     }

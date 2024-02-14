@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu>
-  <menuitem label="Gestão Escolar">
+  <menuitem label="Cadastros">
     <icon>fas:graduation-cap fas-fw</icon>
     <menu>
       <menuitem label="Gestão de Contratos">
         <icon>fa:list fa-fw</icon>
-        <action>AlunoContratoList</action>
+        <action>ContratoList</action>
       </menuitem>
       <menuitem label="Gestão de Relatórios">
         <icon>fa:file fa-fw</icon>

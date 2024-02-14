@@ -1,9 +1,9 @@
 <?php
 /**
- * AlunoContratoList Listing
+ * ContratoList Listing
  * @author  Fred Azv.
  */
-class AlunoContratoList extends TPage
+class ContratoList extends TPage
 {
     private $form; // form
     private $datagrid; // listing
@@ -21,30 +21,30 @@ class AlunoContratoList extends TPage
         parent::__construct();
         
         // creates the form
-        $this->form = new BootstrapFormBuilder('form_search_AlunoContrato');
+        $this->form = new BootstrapFormBuilder('form_search_Contrato');
         $this->form->setFormTitle('Gestão de Contratos');
         $this->form->setFieldSizes('100%');
         
         // create the form fields
         $id = new TEntry('id');
-        $primeiro_responsavel_id = new TDBCombo('primeiro_responsavel_id','sample','Responsavel','id','nome','nome');
+        $primeiro_responsavel_id = new TDBCombo('primeiro_responsavel_id','sample','Cliente','id','razao_social','razao_social');
         $primeiro_responsavel_id->enableSearch(10);
         $ano_letivo = new TEntry('ano_letivo');
 
         $row = $this->form->addFields( [ new TLabel('ID'), $id ],
-                                       [ new TLabel('Responsável Principal'), $primeiro_responsavel_id ],
+                                       [ new TLabel('Cliente'), $primeiro_responsavel_id ],
                                        [ new TLabel('Ano Letivo'), $ano_letivo ]
                                     );
         $row->layout = ['col-sm-2','col-sm-8','col-sm-2'];
 
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__ . '_filter_data') );
-        $this->form->setData( TSession::setValue('AlunoContratoList', parse_url($_SERVER['REQUEST_URI'])) );
+        $this->form->setData( TSession::setValue('ContratoList', parse_url($_SERVER['REQUEST_URI'])) );
         
         // add the search form actions
         $btn = $this->form->addAction(_t('Find'), new TAction([$this, 'onSearch']), 'fa:search');
         $btn->class = 'btn btn-sm btn-primary';
-        $this->form->addActionLink(_t('New'), new TAction(['AlunoContratoForm', 'onEdit']), 'fa:plus green');
+        $this->form->addActionLink(_t('New'), new TAction(['ContratoForm', 'onEdit']), 'fa:plus green');
         
         // creates a Datagrid
         $this->datagrid = new BootstrapDatagridWrapper(new TDataGrid);
@@ -55,8 +55,8 @@ class AlunoContratoList extends TPage
 
         // creates the datagrid columns
         $column_id = new TDataGridColumn('id', 'Id', 'left');
-        $column_primeiro_responsavel_id = new TDataGridColumn('primeiro_responsavel->nome', 'Responsável', 'left');
-        $column_ano_letivo = new TDataGridColumn('ano_letivo', 'Ano Letivo', 'center');
+        $column_primeiro_responsavel_id = new TDataGridColumn('cliente->razao_social', 'Cliente', 'left');
+        $column_ano_letivo = new TDataGridColumn('ano_letivo', 'Ano', 'center');
         $column_preco_valor_integral = new TDataGridColumn('preco_valor_integral', 'Valor Integral', 'right');
         $column_preco_parcelas = new TDataGridColumn('preco_parcelas', 'Parcelas', 'right');
         $column_preco_parcela_valor = new TDataGridColumn('preco_parcela_valor', 'Parcela Valor', 'right');
@@ -109,7 +109,7 @@ class AlunoContratoList extends TPage
 
         $this->datagrid->addActionGroup($action_group);
 
-        $act1 = new TDataGridAction(['AlunoContratoForm', 'onEdit'], ['id'=>'{id}']);
+        $act1 = new TDataGridAction(['ContratoForm', 'onEdit'], ['id'=>'{id}']);
         $act2 = new TDataGridAction([$this, 'onDelete'], ['id'=>'{id}']);
         
         $this->datagrid->addAction($act1, _t('Edit'),   'far:edit blue');
@@ -137,38 +137,38 @@ class AlunoContratoList extends TPage
     {
         try
         {
-            TTransaction::open('sample');
-            $alunocontrato = New AlunoContrato($param['id']);
-            $alunocontrato->financeiro = "S";
-            $alunocontrato->store();
+            // TTransaction::open('sample');
+            // $Contrato = New Contrato($param['id']);
+            // $Contrato->financeiro = "S";
+            // $Contrato->store();
 
-            $cliente_id = $alunocontrato->primeiro_responsavel_id; 
-            $contrato_id = $alunocontrato->id;  
-            $valor = $alunocontrato->preco_valor_integral; 
-            $conta_bancaria_id = 2;  
-            $tipo_pgto_id = $alunocontrato->tipo_pgto_id;  
-            $tipo_forma_pgto_id = $alunocontrato->preco_parcelas;;  
-            $vencimento_primeira_parcela = $alunocontrato->vencimento_parcela; 
-            $descricao = 'MENSALIDADE ESCOLAR DO CONTRATO DE Nº '.$alunocontrato->id;
-            $documento = $alunocontrato->id; 
-            $unit_id = 1;  
-            $user_id = 1;  
-            $previsao = null;  
-            $gerar_boleto = 'N';  
-            $replica = 'N';  
-            $baixa = 'N';  
-            $boleto_formato = null;  
-            $competencia = null;  
-            $pc_receita_id = 2; 
-            $pc_receita_nome = '2.1.1 - Mensalidade'; 
-            $contrato = $param['id'];
-            $desconto_mes = $alunocontrato->preco_desconto / $alunocontrato->preco_parcelas;
+            // $cliente_id = $Contrato->primeiro_responsavel_id; 
+            // $contrato_id = $Contrato->id;  
+            // $valor = $Contrato->preco_valor_integral; 
+            // $conta_bancaria_id = 2;  
+            // $tipo_pgto_id = $Contrato->tipo_pgto_id;  
+            // $tipo_forma_pgto_id = $Contrato->preco_parcelas;;  
+            // $vencimento_primeira_parcela = $Contrato->vencimento_parcela; 
+            // $descricao = 'MENSALIDADE ESCOLAR DO CONTRATO DE Nº '.$Contrato->id;
+            // $documento = $Contrato->id; 
+            // $unit_id = 1;  
+            // $user_id = 1;  
+            // $previsao = null;  
+            // $gerar_boleto = 'N';  
+            // $replica = 'N';  
+            // $baixa = 'N';  
+            // $boleto_formato = null;  
+            // $competencia = null;  
+            // $pc_receita_id = 2; 
+            // $pc_receita_nome = '2.1.1 - Mensalidade'; 
+            // $contrato = $param['id'];
+            // $desconto_mes = $Contrato->preco_desconto / $Contrato->preco_parcelas;
        
-            GerarBoleto::processar( $cliente_id, $contrato_id, $valor,
-            $conta_bancaria_id, $tipo_pgto_id, $tipo_forma_pgto_id, $vencimento_primeira_parcela,
-            $descricao, $documento, $unit_id = 1, $user_id = 1, $previsao = null, $gerar_boleto = 'N', 
-            $replica = 'N', $baixa = 'N', $boleto_formato = null, $competencia = null, $pc_receita_id,$pc_receita_nome,$desconto_mes);
-            TTransaction::close();
+            // GerarBoleto::processar( $cliente_id, $contrato_id, $valor,
+            // $conta_bancaria_id, $tipo_pgto_id, $tipo_forma_pgto_id, $vencimento_primeira_parcela,
+            // $descricao, $documento, $unit_id = 1, $user_id = 1, $previsao = null, $gerar_boleto = 'N', 
+            // $replica = 'N', $baixa = 'N', $boleto_formato = null, $competencia = null, $pc_receita_id,$pc_receita_nome,$desconto_mes);
+            // TTransaction::close();
 
         }
         catch (Exception $e)
@@ -206,61 +206,61 @@ class AlunoContratoList extends TPage
 
     public static function onCarne( $param ){
 
-        TTransaction::open('sample'); 
-        $link_carne = AlunoContrato::where("id",'=',$param['id'] )->load();
+        // TTransaction::open('sample'); 
+        // $link_carne = Contrato::where("id",'=',$param['id'] )->load();
 
-        try {
+        // try {
 
-            $criteria = new TCriteria; 
-            $criteria->add(new TFilter('contrato', '=',$param['id']));
-            $criteria->add(new TFilter('formato', 'LIKE','CARNE'));
+        //     $criteria = new TCriteria; 
+        //     $criteria->add(new TFilter('contrato', '=',$param['id']));
+        //     $criteria->add(new TFilter('formato', 'LIKE','CARNE'));
         
-            $repository = new TRepository('BoletoApi'); 
-            $boleto = $repository->load($criteria);
+        //     $repository = new TRepository('BoletoApi'); 
+        //     $boleto = $repository->load($criteria);
 
-            if($boleto)
-            {
-                foreach($boleto as $bol){
-                    $boletos[] = $bol->pedido_numero;
-                }
-            }
+        //     if($boleto)
+        //     {
+        //         foreach($boleto as $bol){
+        //             $boletos[] = $bol->pedido_numero;
+        //         }
+        //     }
 
-            $dados_api_integracao = new ApiIntegracao(1);
+        //     $dados_api_integracao = new ApiIntegracao(1);
 
-            $obj = new stdClass;
-            $obj->ambiente = $dados_api_integracao->url;
-            $obj->credencial = $dados_api_integracao->credencial;
-            $obj->chave = $dados_api_integracao->chave;
-            $obj->pedido_numero = $boletos;
+        //     $obj = new stdClass;
+        //     $obj->ambiente = $dados_api_integracao->url;
+        //     $obj->credencial = $dados_api_integracao->credencial;
+        //     $obj->chave = $dados_api_integracao->chave;
+        //     $obj->pedido_numero = $boletos;
 
-            $carne = new PJBankApi;
-            $return = $carne->imprimirCarne($obj);
-            $retorno = json_decode($return);
+        //     $carne = new PJBankApi;
+        //     $return = $carne->imprimirCarne($obj);
+        //     $retorno = json_decode($return);
             
-            if($retorno->status == '200'){
+        //     if($retorno->status == '200'){
 
-               $window = TWindow::create('Carnê Escolar', 0.8, 0.8);
-               $object = new TElement('object');
-               $object->data  = $retorno->linkBoleto;
-               $object->type  = 'application/pdf';
-               $object->style = "width: 100%; height:calc(100% - 10px)";
-               $object->add('O navegador não suporta a exibição deste conteúdo, <a style="color:#007bff;" target=_newwindow href="'.$link_carne->linkGrupo.'"> clique aqui para baixar</a>...');
+        //        $window = TWindow::create('Carnê Escolar', 0.8, 0.8);
+        //        $object = new TElement('object');
+        //        $object->data  = $retorno->linkBoleto;
+        //        $object->type  = 'application/pdf';
+        //        $object->style = "width: 100%; height:calc(100% - 10px)";
+        //        $object->add('O navegador não suporta a exibição deste conteúdo, <a style="color:#007bff;" target=_newwindow href="'.$link_carne->linkGrupo.'"> clique aqui para baixar</a>...');
                
-               $window->add($object);
-               $window->show();
+        //        $window->add($object);
+        //        $window->show();
 
-            }else{
-                new TMessage('info', "Status: ".$retorno->status." Mensagem: ".$retorno->msg);
-            }
+        //     }else{
+        //         new TMessage('info', "Status: ".$retorno->status." Mensagem: ".$retorno->msg);
+        //     }
 
-        }
-        catch (Exception $e) // in case of exception
-        {
-            new TMessage('error', $e->getMessage()); // shows the exception error message
-            TTransaction::rollback(); // undo all pending operations
-        }
+        // }
+        // catch (Exception $e) // in case of exception
+        // {
+        //     new TMessage('error', $e->getMessage()); // shows the exception error message
+        //     TTransaction::rollback(); // undo all pending operations
+        // }
 
-        TTransaction::close(); 
+        // TTransaction::close(); 
 
     }
     
@@ -304,7 +304,7 @@ class AlunoContratoList extends TPage
             $value = $param['value'];
             
             TTransaction::open('sample'); // open a transaction with database
-            $object = new AlunoContrato($key); // instantiates the Active Record
+            $object = new Contrato($key); // instantiates the Active Record
             $object->{$field} = $value;
             $object->store(); // update the object in the database
             TTransaction::close(); // close the transaction
@@ -372,8 +372,8 @@ class AlunoContratoList extends TPage
             // open a transaction with database 'sample'
             TTransaction::open('sample');
             
-            // creates a repository for AlunoContrato
-            $repository = new TRepository('AlunoContrato');
+            // creates a repository for Contrato
+            $repository = new TRepository('Contrato');
             $limit = 10;
             // creates a criteria
             $criteria = new TCriteria;
@@ -463,7 +463,7 @@ class AlunoContratoList extends TPage
         {
             $key=$param['key']; // get the parameter $key
             TTransaction::open('sample'); // open a transaction with database
-            $object = new AlunoContrato($key, FALSE); // instantiates the Active Record
+            $object = new Contrato($key, FALSE); // instantiates the Active Record
             $object->delete(); // deletes the object from the database
             TTransaction::close(); // close the transaction
             
