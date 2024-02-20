@@ -158,8 +158,7 @@ class ClienteForm extends TPage
         $row = $this->form->addFields( [ new TLabel('Nome Completo'), $razao_social ],    
                                        [ new TLabel('Como deseja ser chamado'), $nome_fantasia ],
                                        [ new TLabel('Nascimento'), $nascimento ],
-                                       [ new TLabel('Orgão Emissor'), $orgao_emissor ],
-                                       [ new TLabel('Estado Civil'), $estado_civil ]
+                                       [ new TLabel('Orgão Emissor'), $orgao_emissor ]
 
                                     );
         $row->layout = ['col-sm-3', 'col-sm-3', 'col-sm-2','col-sm-2','col-sm-2'];
@@ -368,7 +367,6 @@ class ClienteForm extends TPage
             new TMessage('error', $e->getMessage()); // shows the exception error message
             $this->form->setData( $this->form->getData() ); // keep form data
             $this->onReload($param);
-            $this->loadListData($param);
             TTransaction::rollback(); // undo all pending operations
         }
     }
