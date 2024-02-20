@@ -75,7 +75,7 @@ class ClienteForm extends TPage
         $comboestado_civil['Viuvo(a)'] = 'Viuvo(a)';
         $comboestado_civil['Divorciado(a)'] = 'Divorciado(a)';
         $estado_civil->addItems($comboestado_civil);
-        $estado_civil->addValidation('Estado Civil', new TRequiredValidator);
+        //$estado_civil->addValidation('Estado Civil', new TRequiredValidator);
 
         /*Dados Principais*/
         $this->form->addContent( ['<h4><b>Dados Principais</b></h4><hr>'] );
@@ -123,7 +123,7 @@ class ClienteForm extends TPage
         $nome_fantasia = new TEntry('nome_fantasia');
         $nome_fantasia->forceUpperCase();
         $nascimento = new TDate('nascimento');
-        $nascimento->addValidation('Nascimento', new TRequiredValidator);
+        //$nascimento->addValidation('Nascimento', new TRequiredValidator);
         $nascimento->setDatabaseMask('yyyy-mm-dd');
         $nascimento->setMask('dd/mm/yyyy');
         $razao_social->onkeyup = 'copiaRazaoSocial()';
@@ -175,7 +175,7 @@ class ClienteForm extends TPage
         // $prazo_atendimento->setMask('9!');
 
         $cliente_grupo_id = new TDBCombo('cliente_grupo_id','sample','ClienteGrupo','id','nome','nome');
-        $cliente_grupo_id->addValidation('Grupo de Clientes', new TRequiredValidator);
+        //$cliente_grupo_id->addValidation('Grupo de Clientes', new TRequiredValidator);
         //$cliente_grupo_id->enableSearch();
 
         $row = $this->form->addFields(  [ new TLabel('Grupo de cliente'), $cliente_grupo_id ]
@@ -204,7 +204,7 @@ class ClienteForm extends TPage
         $combo_filhos['S'] = 'Sim';
         $combo_filhos['N'] = 'Não';
         $filhos->addItems($combo_filhos);
-        $filhos->addValidation('Tem Filhos?', new TRequiredValidator);
+        //$filhos->addValidation('Tem Filhos?', new TRequiredValidator);
 
         $row = $this->form->addFields(  [  new TLabel('Tem Filhos?'),$filhos ]);
         $row->layout = ['col-sm-2','col-sm-10'];
@@ -255,7 +255,7 @@ class ClienteForm extends TPage
 
         $this->form->addContent( ['<h4><b>Dados de quem indicou</b></h4><hr>'] );
         $fornecedor_id = new TDBUniqueSearch('fornecedor_id', 'sample', 'Fornecedor','id', 'nome_fantasia');
-        $fornecedor_id->addValidation('Quem indicou', new TRequiredValidator);
+        //$fornecedor_id->addValidation('Quem indicou', new TRequiredValidator);
 
         $row = $this->form->addFields( [ new TLabel('Quem Indicou'), $fornecedor_id ]   
         );
