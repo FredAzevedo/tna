@@ -52,7 +52,7 @@ class ClienteForm extends TPage
         $this->form->setFormTitle('Cliente');
         $this->form->setFieldSizes('100%');
         
-        $this->form->appendPage('Dados Principais');
+        // $this->form->appendPage('Dados Principais');
         // create the form fields
         $id = new TEntry('id');
 
@@ -171,44 +171,21 @@ class ClienteForm extends TPage
         $combo_sexo['F'] = 'Feminino';
         $sexo->addItems($combo_sexo);
 
-        // $prazo_atendimento = new TEntry('prazo_atendimento');
-        // $prazo_atendimento->setMask('9!');
-
         $cliente_grupo_id = new TDBCombo('cliente_grupo_id','sample','ClienteGrupo','id','nome','nome');
-        //$cliente_grupo_id->addValidation('Grupo de Clientes', new TRequiredValidator);
-        //$cliente_grupo_id->enableSearch();
+ 
 
-        $row = $this->form->addFields(  [ new TLabel('Grupo de cliente'), $cliente_grupo_id ]
-        );
-        $row->layout = ['col-sm-5','col-sm-5','col-sm-2'];
-
-        $row = $this->form->addFields( [ new TLabel('Sexo'), $sexo ]
-                                       );
-        $row->layout = ['col-sm-2'];
-        
-        $representante_naturalidade = new TEntry('representante_naturalidade');
-    
         $telefone_principal = new TEntry('telefone_principal');
         $telefone_principal->setMask('(99)99999-9999');
         $email_principal = new TEntry('email_principal');
-        $profissao_id = new TDBUniqueSearch('profissao_id', 'sample', 'Profissao', 'id', 'nome');
-      
 
-        $row = $this->form->addFields(  [ ],
-                                        [ ],
-                                        [ new TLabel('Telefone Principal'), $telefone_principal ],
-                                        [ new TLabel('Email Principal'), $email_principal ]);
-        $row->layout = ['col-sm-4','col-sm-2','col-sm-2','col-sm-4'];
-
-        $filhos = new TCombo('filhos');
-        $combo_filhos['S'] = 'Sim';
-        $combo_filhos['N'] = 'Não';
-        $filhos->addItems($combo_filhos);
-        //$filhos->addValidation('Tem Filhos?', new TRequiredValidator);
-
-        $row = $this->form->addFields(  [  new TLabel('Tem Filhos?'),$filhos ]);
-        $row->layout = ['col-sm-2','col-sm-10'];
-
+        $row = $this->form->addFields(  [ new TLabel('Grupo de cliente'), $cliente_grupo_id ],
+                                    [ new TLabel('Telefone Principal'), $telefone_principal ],
+                                    [ new TLabel('Email Principal'), $email_principal ]
+                                    
+        );
+        $row->layout = ['col-sm-5','col-sm-2','col-sm-5'];
+    
+        
         $fornecedor_id = new TDBCombo('fornecedor_id', 'sample', 'Fornecedor','id', 'nome_fantasia');
         $fornecedor_id->enableSearch();
         $fornecedor_id->setSize('100%');
@@ -243,7 +220,7 @@ class ClienteForm extends TPage
 
         $row = $this->form->addFields( [ new TLabel('CEP'), $cep ],    
                                        [ new TLabel('Logradouro'), $logradouro ],
-                                       [ new TLabel('Número'), $numero ],
+                                       [ new TLabel('Nº'), $numero ],
                                        [ new TLabel('Bairro'), $bairro ]);
         $row->layout = ['col-sm-2','col-sm-5', 'col-sm-1', 'col-sm-4'];
         
@@ -266,36 +243,7 @@ class ClienteForm extends TPage
             $id->setEditable(FALSE);
         }
         
-        $this->form->addContent( ['<h4><b>Contatos Secundários</b></h4><hr>'] );
-        /* Telefones */
-        $tel_responsavel = new TEntry('tel_responsavel[]');
-        $tel_responsavel->forceUpperCase();
-        $tel_telefone = new TEntry('tel_telefone[]');
-        $tel_telefone->setMask('(99)99999-9999');
-
-        //Detalhe dos telefones
-        $telefone_array = $this->fieldlist = new TFieldList;
-        $this->fieldlist->addField( '<b>Responsável</b>', $tel_responsavel);
-        $this->fieldlist->addField( '<b>Telefone</b>', $tel_telefone);
-        $this->fieldlist->enableSorting();
-        /* Telefones */
-
-        /* Emails */
-        $email_responsavel = new TEntry('email_responsavel[]');
-        $email_endereco = new TEntry('email_endereco[]');
-        $tel_telefone->setMask('(99)99999-9999');
-
-        //Detalhe dos emails
-        $email_array = $this->lista_email = new TFieldList;
-        $this->lista_email->addField( '<b>Responsável</b>', $email_responsavel);
-        $this->lista_email->addField( '<b>E-mail</b>', $email_endereco);
-        $this->lista_email->enableSorting();
-        /* Emails */
-        
-        $row = $this->form->addFields( [ new TLabel('Telefone'), $telefone_array ],    
-                                       [ new TLabel('Email'), $email_array ]);
-        $row->layout = ['col-sm-6', 'col-sm-6'];
-
+  
         // create the form actions
         $btn = $this->form->addAction(_t('Save'), new TAction([$this, 'onSave']), 'fa:save');
         $btn->class = 'btn btn-sm btn-primary';
@@ -380,62 +328,7 @@ class ClienteForm extends TPage
 
     public function onReload($param)
     {
-        $this->onReloadUsuarioLogado($param);
         $this->loaded = TRUE;
-    }
-
-    public function loadListData($param) {
-        // verifica se tem conteudo do telefone e email
-        $tel_responsavel = $param['tel_responsavel'] ?? null;
-        $tel_telefone = $param['tel_telefone'] ?? null;
-        $email_responsavel = $param['email_responsavel'] ?? null;
-        $email_endereco = $param['email_endereco'] ?? null;
-
-        //verifica se é array e tem algum valor
-        if ($tel_telefone && is_array($tel_telefone) && count($tel_telefone) > 0)
-        {
-            $this->fieldlist->addHeader();
-            foreach ($tel_telefone as $index => $telefone)
-            {
-
-                //cria a classe e adiciona o item
-                $tel_detail = new stdClass;
-                $tel_detail->tel_responsavel  = $tel_responsavel[$index];
-                $tel_detail->tel_telefone = $telefone;
-                $this->fieldlist->addDetail($tel_detail);
-
-            }
-            $this->fieldlist->addCloneAction();
-        }
-        else
-        {
-            $this->fieldlist->addHeader();
-            $this->fieldlist->addDetail( new stdClass );
-            $this->fieldlist->addCloneAction();
-        }
-
-        //mesmo principio do telefone acima.
-        if ($email_endereco && is_array($email_endereco) && count($email_endereco) > 0)
-        {
-            $this->lista_email->addHeader();
-            foreach ($email_endereco as $index => $endereco)
-            {
-
-                $email_detail = new stdClass;
-                $email_detail->email_responsavel  = $$email_responsavel[$index];;
-                $email_detail->email_endereco = $endereco;
-                $this->lista_email->addDetail($email_detail);
-
-            }
-            $this->lista_email->addCloneAction();
-        }
-        else
-        {
-            $this->lista_email->addHeader();
-            $this->lista_email->addDetail( new stdClass );
-            $this->lista_email->addCloneAction();
-        }
-
     }
 
     public function onSave( $param )
@@ -460,37 +353,6 @@ class ClienteForm extends TPage
             $id_cliente = $data->id;
             $data->fromArray( $param );
 
-            if( !empty($param['tel_telefone']) AND is_array($param['tel_telefone']) )
-            {
-                foreach( $param['tel_telefone'] as $row => $tel_telefone)
-                {
-                    if ($tel_telefone)
-                    {
-                        $tel = new TelefonesCliente;
-                        $tel->cliente_id = $id_cliente;
-                        $tel->telefone = $tel_telefone;
-                        $tel->responsavel = $param['tel_responsavel'][$row];
-                        $tel->store();
-                    }
-                }
-            }
-
-            if( !empty($param['email_endereco']) AND is_array($param['email_endereco']) )
-            {
-                foreach( $param['email_endereco'] as $row => $email_endereco)
-                {
-                    if ($email_endereco)
-                    {
-                        $email = new EmailCliente;
-                        $email->cliente_id = $id_cliente;
-                        $email->responsavel  = $param['email_responsavel'][$row];
-                        $email->email = $email_endereco;
-                        
-                        $email->store();
-                    }
-                }
-            }
-            
             $this->form->setData($data);
             TTransaction::close();
 
@@ -527,69 +389,11 @@ class ClienteForm extends TPage
                 $this->onChangeSexo( ['tipo' => $cliente->tipo] );
                 $this->onReload( $param ); // reload items list
                 
-                $telefone = $cliente->getTelefonesClientes();
-                $email = $cliente->getEmailClientes();
-
-                if ($telefone)
-                {
-                   $this->fieldlist->addHeader();
-                    foreach ($telefone as $tel)
-                    {
-                        
-                        $tel_detail = new stdClass;
-                        $tel_detail->tel_responsavel  = $tel->responsavel;
-                        $tel_detail->tel_telefone = $tel->telefone;
-                        
-                        $this->fieldlist->addDetail($tel_detail);
-
-                    }
-                    $this->fieldlist->addCloneAction();
-                }
-                else
-                {
-                    // $this->onClear($param);
-                    $this->fieldlist->addHeader();
-                    $this->fieldlist->addDetail( new stdClass );
-                    $this->fieldlist->addCloneAction();
-                }
-
-                if ($email)
-                {
-                    $this->lista_email->addHeader();
-                    foreach ($email as $e)
-                    {
-                        
-                        $email_detail = new stdClass;
-                        $email_detail->email_responsavel  = $e->responsavel;
-                        $email_detail->email_endereco = $e->email;
-                        
-                        $this->lista_email->addDetail($email_detail);
-
-                    }
-                    $this->lista_email->addCloneAction();
-                }
-                else
-                {
-                    $this->lista_email->addHeader();
-                    $this->lista_email->addDetail( new stdClass );
-                    $this->lista_email->addCloneAction();
-                }
-
                 TTransaction::close();
             }
             else
             {   
                 $this->form->clear(TRUE);
-                $this->fieldlist->addHeader();
-                $this->fieldlist->addDetail( new stdClass );
-                $this->fieldlist->addCloneAction();
-
-                $this->lista_email->addHeader();
-                $this->lista_email->addDetail( new stdClass );
-                $this->lista_email->addCloneAction();
-
-                TSession::setValue(__CLASS__.'_items', null);
-                TSession::setValue(__CLASS__.'_items_equipamento', null);
                 $this->onReload( $param );
                
             }
