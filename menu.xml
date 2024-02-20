@@ -3,6 +3,10 @@
   <menuitem label="Cadastros">
     <icon>fas:graduation-cap fas-fw</icon>
     <menu>
+      <menuitem label="Grupo de Clientes">
+        <icon>fa:address-book fa-fw</icon>
+        <action>ClienteGrupoFormList</action>
+      </menuitem>
       <menuitem label="Gestão de Contratos">
         <icon>fa:list fa-fw</icon>
         <action>ContratoList</action>
