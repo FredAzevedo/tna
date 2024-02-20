@@ -11,6 +11,14 @@
         <icon>fa:list fa-fw</icon>
         <action>ContratoList</action>
       </menuitem>
+      <menuitem label="Clientes">
+        <icon>fa:user fa-fw</icon>
+        <action>ClienteList</action>
+      </menuitem>
+      <menuitem label="Fornecedores">
+        <icon>fa:book fa-fw</icon>
+        <action>FornecedorList</action>
+      </menuitem>
       <menuitem label="Gestão de Relatórios">
         <icon>fa:file fa-fw</icon>
         <action>RelatorioCustomizadoList</action>
@@ -23,14 +31,6 @@
       <menuitem label="Dashboard Financeiro">
         <icon>fa:signal fa:fw</icon>
         <action>DashboardFinanceiroView</action>
-      </menuitem>
-      <menuitem label="Clientes">
-        <icon>fa:user fa-fw</icon>
-        <action>ClienteList</action>
-      </menuitem>
-      <menuitem label="Fornecedores">
-        <icon>fa:book fa-fw</icon>
-        <action>FornecedorList</action>
       </menuitem>
       <menuitem label="Bancos">
         <icon>fa:university fa-fw</icon>

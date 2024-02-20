@@ -65,9 +65,28 @@ class ClienteForm extends TPage
         $unit_id->setValue(TSession::getValue('userunitid'));
         $unit_id->setEditable(FALSE);
 
-        $user_id = new TDBCombo('user_id','sample','SystemUser','id','name','name');
-        $user_id->addValidation('Usuário', new TRequiredValidator);
-        $user_id->setEditable(FALSE);
+        if (!empty($_GET['id']))
+        {
+            $user_id = new TDBCombo('user_id','sample','SystemUser','id','name','name');
+            $user_id->setEditable(FALSE);
+            $user_id->addValidation('Usuário de Criação', new TRequiredValidator);
+
+            $unit_id = new TDBCombo('unit_id','sample','SystemUnit','id','unidade','unidade');
+            $unit_id->setEditable(FALSE);
+            $unit_id->addValidation('Unidade de Criação', new TRequiredValidator);
+
+        } else {
+
+            $user_id = new TDBCombo('user_id','sample','SystemUser','id','name','name');
+            $user_id->setValue(TSession::getValue('userid'));
+            $user_id->setEditable(FALSE);
+            $user_id->addValidation('Unidade de Criação', new TRequiredValidator);
+
+            $unit_id = new TDBCombo('unit_id','sample','SystemUnit','id','unidade','unidade');
+            $unit_id->setValue(TSession::getValue('userunitid'));
+            $unit_id->setEditable(FALSE);
+            $unit_id->addValidation('Unidade de Criação', new TRequiredValidator);
+        }
 
         $estado_civil = new TCombo('estado_civil');
         $comboestado_civil['Casado(a)'] = 'Casado(a)';
