@@ -96,6 +96,14 @@
         <icon>fa:briefcase fa-fw</icon>
         <action>BoletoCarneList</action>
       </menuitem>
+      <menuitem label="Tipo de Pagamento">
+        <icon>fa:calculator fa-fw</icon>
+        <action>TipoPgtoFormList</action>
+      </menuitem>
+      <menuitem label="Formas de Pagamento">
+        <icon>fa:credit-card fa-fw</icon>
+        <action>TipoFormaPgtoFormList</action>
+      </menuitem>
     </menu>
   </menuitem>
   <menuitem label="_t{Administration}">

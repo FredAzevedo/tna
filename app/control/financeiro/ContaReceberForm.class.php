@@ -267,10 +267,6 @@ class ContaReceberForm extends TPage
             $this->form->validate(); // validate form data
             $data = $this->form->getData(); // get form data as array
             $valorForm = number_format($data->valor, 2, '.', '');
-            
-            if (!$data->gerar_boleto) {
-                $data->gerar_boleto = 'N';
-            }
 
             if (!$data->id)
             {
