@@ -110,8 +110,8 @@ class ClienteForm extends TPage
         $row = $this->form->addFields( [ new TLabel('ID'), $id ],    
                                        [ new TLabel('Atualizado Por'), $user_id ],
                                        [ new TLabel('Unidade.'), $unit_id ],
-                                       [ new TLabel('Tipo<span style="color: red; font-size:20px;">*</span>'), $tipo ],
-                                       [ new TLabel('CPF/CNPJ<span style="color: red; font-size:20px;">*</span>'), $cpf_cnpj ],
+                                       [ new TLabel('Tipo'), $tipo ],
+                                       [ new TLabel('CPF/CNPJ'), $cpf_cnpj ],
                                        [ new TLabel('RG'), $rg_ie ]
                                        );
         $row->layout = ['col-sm-1', 'col-sm-2', 'col-sm-3', 'col-sm-2', 'col-sm-2', 'col-sm-2'];
@@ -146,21 +146,20 @@ class ClienteForm extends TPage
         $comboestado_civil['Viuvo(a)'] = 'Viuvo(a)';
         $comboestado_civil['Divorciado(a)'] = 'Divorciado(a)';
         $estado_civil->addItems($comboestado_civil);
-        $estado_civil->addValidation('Estado Civíl', new TRequiredValidator);
 
         $orgao_emissor = new TEntry('orgao_emissor');
         $beneficiario_mutuante = new TEntry('beneficiario_mutuante');
-        $beneficiario_mutuante->addValidation('Beneficiário do Mutuante', new TRequiredValidator);
+
         $cpf_beneficiario_mutuante = new TEntry('cpf_beneficiario_mutuante');
-        $cpf_beneficiario_mutuante->addValidation('CPF do Beneficiário', new TRequiredValidator);
+      
         $cpf_beneficiario_mutuante->onKeyUp = 'fwFormatarCpfCnpj(this)';
         $cpf_beneficiario_mutuante->onBlur = 'validaCpfCnpj(this,\'form_Cliente\')';
 
-        $row = $this->form->addFields( [ new TLabel('Nome Completo<span style="color: red; font-size:20px;">*</span>'), $razao_social ],    
+        $row = $this->form->addFields( [ new TLabel('Nome Completo'), $razao_social ],    
                                        [ new TLabel('Como deseja ser chamado'), $nome_fantasia ],
-                                       [ new TLabel('Nascimento<span style="color: red; font-size:20px;">*</span>'), $nascimento ],
+                                       [ new TLabel('Nascimento'), $nascimento ],
                                        [ new TLabel('Orgão Emissor'), $orgao_emissor ],
-                                       [ new TLabel('Estado Civil<span style="color: red; font-size:20px;">*</span>'), $estado_civil ]
+                                       [ new TLabel('Estado Civil'), $estado_civil ]
 
                                     );
         $row->layout = ['col-sm-3', 'col-sm-3', 'col-sm-2','col-sm-2','col-sm-2'];
@@ -179,9 +178,7 @@ class ClienteForm extends TPage
         $cliente_grupo_id->addValidation('Grupo de Clientes', new TRequiredValidator);
         //$cliente_grupo_id->enableSearch();
 
-        $row = $this->form->addFields(  [ new TLabel('Grupo de cliente<span style="color: red; font-size:20px;">*</span>'), $cliente_grupo_id ],
-                                        [ new TLabel('Beneficiário do Mutuante<span style="color: red; font-size:20px;">*</span>'), $beneficiario_mutuante ],
-                                        [ new TLabel('CPF do Beneficiário<span style="color: red; font-size:20px;">*</span>'), $cpf_beneficiario_mutuante ]
+        $row = $this->form->addFields(  [ new TLabel('Grupo de cliente'), $cliente_grupo_id ]
         );
         $row->layout = ['col-sm-5','col-sm-5','col-sm-2'];
 
@@ -190,20 +187,18 @@ class ClienteForm extends TPage
         $row->layout = ['col-sm-2'];
         
         $representante_naturalidade = new TEntry('representante_naturalidade');
-        $representante_naturalidade->addValidation('Naturalidade', new TRequiredValidator);
+    
         $telefone_principal = new TEntry('telefone_principal');
-        $telefone_principal->setMask('(999 99)99999-9999');
-        $telefone_principal->addValidation('Telefone Principal', new TRequiredValidator);
+        $telefone_principal->setMask('(99)99999-9999');
         $email_principal = new TEntry('email_principal');
-        $email_principal->addValidation('Email Principal', new TRequiredValidator);
         $profissao_id = new TDBUniqueSearch('profissao_id', 'sample', 'Profissao', 'id', 'nome');
-        $profissao_id->addValidation('Profissão', new TRequiredValidator);
+      
 
-        $row = $this->form->addFields(  [  new TLabel('Profissão<span style="color: red; font-size:20px;">*</span>'),$profissao_id ],
-                                        [ new TLabel('Naturalidade<span style="color: red; font-size:20px;">*</span>'), $representante_naturalidade ],
-                                        [ new TLabel('Telefone Principal<span style="color: red; font-size:20px;">*</span>'), $telefone_principal ],
-                                        [ new TLabel('Email Principal<span style="color: red; font-size:20px;">*</span>'), $email_principal ]);
-        $row->layout = ['col-sm-4','col-sm-3','col-sm-2','col-sm-3'];
+        $row = $this->form->addFields(  [ ],
+                                        [ ],
+                                        [ new TLabel('Telefone Principal'), $telefone_principal ],
+                                        [ new TLabel('Email Principal'), $email_principal ]);
+        $row->layout = ['col-sm-4','col-sm-2','col-sm-2','col-sm-4'];
 
         $filhos = new TCombo('filhos');
         $combo_filhos['S'] = 'Sim';
@@ -211,7 +206,7 @@ class ClienteForm extends TPage
         $filhos->addItems($combo_filhos);
         $filhos->addValidation('Tem Filhos?', new TRequiredValidator);
 
-        $row = $this->form->addFields(  [  new TLabel('Tem Filhos?<span style="color: red; font-size:20px;">*</span>'),$filhos ]);
+        $row = $this->form->addFields(  [  new TLabel('Tem Filhos?'),$filhos ]);
         $row->layout = ['col-sm-2','col-sm-10'];
 
         $fornecedor_id = new TDBCombo('fornecedor_id', 'sample', 'Fornecedor','id', 'nome_fantasia');
@@ -246,15 +241,15 @@ class ClienteForm extends TPage
         $lat = new TEntry('lat');
         $lon = new TEntry('lon');
 
-        $row = $this->form->addFields( [ new TLabel('CEP<span style="color: red; font-size:20px;">*</span>'), $cep ],    
-                                       [ new TLabel('Logradouro<span style="color: red; font-size:20px;">*</span>'), $logradouro ],
+        $row = $this->form->addFields( [ new TLabel('CEP'), $cep ],    
+                                       [ new TLabel('Logradouro'), $logradouro ],
                                        [ new TLabel('Número'), $numero ],
-                                       [ new TLabel('Bairro<span style="color: red; font-size:20px;">*</span>'), $bairro ]);
+                                       [ new TLabel('Bairro'), $bairro ]);
         $row->layout = ['col-sm-2','col-sm-5', 'col-sm-1', 'col-sm-4'];
         
         $row = $this->form->addFields( [ new TLabel('Complemento'), $complemento ],
-                                       [ new TLabel('Cidade<span style="color: red; font-size:20px;">*</span>'), $cidade ],    
-                                       [ new TLabel('UF<span style="color: red; font-size:20px;">*</span>'), $uf ],
+                                       [ new TLabel('Cidade'), $cidade ],    
+                                       [ new TLabel('UF'), $uf ],
                                        [ new TLabel('Código do IBGE'), $codMuni ]);
         $row->layout = ['col-sm-5','col-sm-4', 'col-sm-1', 'col-sm-2'];
 
@@ -262,7 +257,7 @@ class ClienteForm extends TPage
         $fornecedor_id = new TDBUniqueSearch('fornecedor_id', 'sample', 'Fornecedor','id', 'nome_fantasia');
         $fornecedor_id->addValidation('Quem indicou', new TRequiredValidator);
 
-        $row = $this->form->addFields( [ new TLabel('Quem Indicou<span style="color: red; font-size:20px;">*</span>'), $fornecedor_id ]   
+        $row = $this->form->addFields( [ new TLabel('Quem Indicou'), $fornecedor_id ]   
         );
         $row->layout = ['col-sm-12'];
 
