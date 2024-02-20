@@ -161,7 +161,7 @@ class ClienteForm extends TPage
                                        [ new TLabel('Orgão Emissor'), $orgao_emissor ]
 
                                     );
-        $row->layout = ['col-sm-3', 'col-sm-3', 'col-sm-2','col-sm-2','col-sm-2'];
+        $row->layout = ['col-sm-4', 'col-sm-4', 'col-sm-2','col-sm-2'];
 
         //$site = new TEntry('site');
         
