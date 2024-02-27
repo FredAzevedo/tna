@@ -24,25 +24,35 @@ class FornecedorForm extends TPage
     
         $javascript = "
 
-            // personaliza os campos de acordo com o tipo de pessoa
-            $('select[name=\"tipo\"]').change(function(event){
-                var tipoPessoa;
-                $('select[name=\"tipo\"] > option:selected').each(function(){
-                           tipoPessoa = $(this).text();
-                });
-                
-                //alert(tipoPessoa.toLowerCase());
-                if (tipoPessoa.toLowerCase() == 'pessoa física') {
-                    //$('label:contains(CNPJ/CPF)').text('CPF');
-                    //$('label:contains(CNPJ)').text('CPF');
-                    $('input[name=\"cpf_cnpj\"]').attr({onkeypress:'return tentry_mask(this,event,\"999.999.999-99\")'}).val('');
-                }
-                if (tipoPessoa.toLowerCase() == 'pessoa jurídica') {
-                    //$('label:contains(CNPJ/CPF)').text('CNPJ');
-                    //$('label:contains(CPF)').text('CNPJ');
-                    $('input[name=\"cpf_cnpj\"]').attr({onkeypress:'return tentry_mask(this,event,\"99.999.999/9999-99\")'}).val('');
-                }
+            $(document).on('keydown', 'input[name=\"cpf_cnpj\"]', function (e) {
+
+                var digit = e.key.replace(/\D/g, '');
+
+                var value = $(this).val().replace(/\D/g, '');
+
+                var size = value.concat(digit).length;
+
+                // if(size <= 11) { $('select[name=\"tipo\"]').val('F');}
+                // else $('select[name=\"tipo\"]').val('J');
+
+                $(this).mask((size <= 11) ? '000.000.000-00' : '00.000.000/0000-00');
+
+
             });
+
+            $(document).on('keydown', 'input[name=\"representante_cpf\"]', function (e) {
+
+                var digit = e.key.replace(/\D/g, '');
+
+                var value = $(this).val().replace(/\D/g, '');
+
+                var size = value.concat(digit).length;
+
+                $(this).mask((size <= 11) ? '000.000.000-00' : '00.000.000/0000-00');
+
+
+            });
+            
         ";
    
         $script->add($javascript);
