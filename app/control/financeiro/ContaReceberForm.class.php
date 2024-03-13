@@ -355,8 +355,6 @@ class ContaReceberForm extends TPage
                 $object->valor_real = $valorForm;
                 $object->store(); // save the object
 
-                $boleto_id = $this->onGerarBoletoChecked($object);
-
                 if ($boleto_id) {
                     $object->boleto_id = $boleto_id;
                 }
