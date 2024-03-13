@@ -317,12 +317,6 @@ class ContaReceberForm extends TPage
                         $object->gerar_boleto = $data->gerar_boleto;
                         $object->store();
 
-                        $boleto_id = $this->onGerarBoletoChecked($object);
-
-                        if ($boleto_id) {
-                            $object->boleto_id = $boleto_id;
-                        }
-
                         $this->saveFiles($object, $data, 'arquivo', 'files/documents', 'ContaReceberArquivo', 'arquivo', 'conta_receber_id'); 
 
                     }
@@ -338,9 +332,6 @@ class ContaReceberForm extends TPage
                     $object->valor_pago = $valorForm;
                     $object->store(); // save the object
 
-                    if ($boleto_id) {
-                        $object->boleto_id = $boleto_id;
-                    }
 
                 }
 
