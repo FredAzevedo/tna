@@ -311,6 +311,7 @@ class ContaReceberForm extends TPage
                         $object->documento = $data->documento;
                         $object->descricao = $data->descricao;
                         $object->departamento_id = $data->departamento_id;
+                        $object->centro_custo_id = $data->centro_custo_id;
                         /*$object->multa = $data->multa || 0;
                         $object->juros = $data->juros || 0;
                         $object->desconto = $data->desconto || 0;*/
