@@ -310,6 +310,7 @@ class ContaReceberForm extends TPage
                         $object->responsavel = $data->responsavel;
                         $object->documento = $data->documento;
                         $object->descricao = $data->descricao;
+                        $object->departamento_id = $data->departamento_id;
                         /*$object->multa = $data->multa || 0;
                         $object->juros = $data->juros || 0;
                         $object->desconto = $data->desconto || 0;*/
