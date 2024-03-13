@@ -355,9 +355,6 @@ class ContaReceberForm extends TPage
                 $object->valor_real = $valorForm;
                 $object->store(); // save the object
 
-                if ($boleto_id) {
-                    $object->boleto_id = $boleto_id;
-                }
 
             }
 
