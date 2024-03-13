@@ -71,6 +71,8 @@ class ContaReceber extends TRecord
         parent::addAttribute('juridico');
         parent::addAttribute('pedido_numero');
         parent::addAttribute('conciliado');
+        parent::addAttribute('departamento_id');
+        parent::addAttribute('centro_custo_id');
     }
 
     
