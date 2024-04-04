@@ -1,2 +1,0 @@
-id,unit_id,gateway,tipo,producao,url,chave,credencial,created_at,updated_at,deleted_at
-1,1,1,1,1,https://api.pjbank.com.br,f5422f3b213cc3e3df446221aa9c9504db5742ee,46558d00837261d649493c832c9fbed874b9a9cd,"2023-11-07 19:37:21","2023-11-07 19:37:21",

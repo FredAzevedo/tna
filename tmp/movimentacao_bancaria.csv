@@ -1,4 +1,0 @@
-id,valor_movimentacao,data_lancamento,data_vencimento,data_baixa,status,historico,baixa,tipo,documento,unit_id,cliente_id,fornecedor_id,pc_receita_id,pc_receita_nome,pc_despesa_id,pc_despesa_nome,conta_pagar_id,conta_receber_id,conta_bancaria_id,lancamento_bancario_id,transferencia_bancaria_id,departamento_id,centro_custo_id,created_at,updated_at,deleted_at
-1,0.00,2023-09-04,2023-09-04,2023-09-04,,"Saldos Iniciais de Implantação de Software",,1,1,1,,,1,"1.1.1 - Matrícula",,,,,1,,,,,"2023-09-04 16:40:12","2023-09-04 16:40:12",
-2,10.00,2023-11-11,2023-11-13,2023-11-14,Crédito,"testando o boleto avulso",S,1,1234,1,1623,,2,"2.1.1 - Mensalidade",,,,12,2,,,,,"2023-11-11 16:20:34","2023-11-11 16:20:34",
-3,2.60,2023-11-11,2023-11-11,2023-11-14,Débito,"Taxa PJbank Ref. CR. Nº: 12",S,0,12,1,,1,,,42,"2.03.04.04 - Tarifas",1,,2,,,,,"2023-11-11 16:20:34","2023-11-11 16:20:34",

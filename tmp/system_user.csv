@@ -1,6 +1,0 @@
-id,name,login,password,email,frontpage_id,tipo_estoque,system_unit_id,active,created_at,updated_at,deleted_at,accepted_term_policy,accepted_term_policy_at,accepted_term_policy_data,phone,address,about,function_name,custom_code,otp_secret
-1,"Fred Azevedo",admin,$2y$10$New8rGnSSuIQo/uLL.lb2u58RjmRFP.8XxBem/NIs1R9SyQ2dbXiy,fred@macroerp.com.br,10,2,1,Y,"2020-01-11 10:27:05","2024-01-04 11:56:55",,N,,,,,,,,
-2,"Luciene Cunha",luciene,4cd51e51a4225287c8bb2fa0eb4343e1,flucienecunha@gmail.com,10,,1,Y,"2023-09-06 17:42:00","2023-09-06 17:42:00",,,,,,,,,,
-3,"Thainara Cunha",thainara,56daaa1329ee509600fccc35a77dd3aa,thainaracunha@gmail.com,10,,1,Y,"2023-09-06 17:42:56","2023-09-06 17:48:20",,,,,,,,,,
-4,Luana,luana,89794b621a313bb59eed0d9f0f4e8205,colegio_ccs@yahoo.com.br,10,,1,Y,"2023-11-15 15:28:47","2023-11-15 15:28:47",,,,,,,,,,
-5,Albertina,albertina,89794b621a313bb59eed0d9f0f4e8205,albertina_vania@yahoo.com.br,10,,1,Y,"2023-11-15 15:29:30","2023-11-15 15:30:13",,,,,,,,,,

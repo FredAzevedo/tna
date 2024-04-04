@@ -59,6 +59,7 @@ class ContaReceberListInadiplentes extends TPage
         $btn->class = 'btn btn-sm btn-primary';
         $this->form->addActionLink(_t('New'), new TAction(['ContaReceberForm', 'onEdit']), 'fa:plus green');
         $btn2 = $this->form->addAction('Baixar Títulos', new TAction([$this, 'onBaixar']), 'fa:plus green');
+        $btn4 = $this->form->addAction('PDF', new TAction(['RelContaReceberInadiplentes', 'onViewPDF']), 'fa:table');
        
         // creates a Datagrid
         $this->datagrid = new BootstrapDatagridWrapper(new TDataGrid);
@@ -71,6 +72,7 @@ class ContaReceberListInadiplentes extends TPage
         $this->formGrid = new TForm;
         $this->formGrid->add($this->datagrid);
         $this->formGrid->addField($btn2);
+        $this->formGrid->addField($btn4);
 
 
         // creates the datagrid columns

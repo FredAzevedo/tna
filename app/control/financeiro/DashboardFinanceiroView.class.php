@@ -234,7 +234,7 @@ class DashboardFinanceiroView extends TPage
             $conn = TTransaction::get();
             //total do mes em monetário
             //$sthVM = $conn->prepare("SELECT SUM(valor) as valor_mes FROM conta_receber  WHERE MONTH(data_vencimento) = MONTH(NOW()) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ?"); 
-            $sthVM = $conn->prepare("SELECT SUM(valor) as valor_mes FROM conta_receber  WHERE MONTH(data_vencimento) = MONTH(NOW()) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ? AND gera_nfse = 'S'"); 
+            $sthVM = $conn->prepare("SELECT SUM(valor) as valor_mes FROM conta_receber  WHERE MONTH(data_vencimento) = MONTH(NOW()) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ?"); 
 
             $sthVM->execute([TSession::getValue('userunitid')]);
             $result1 = $sthVM->fetchAll();
@@ -247,7 +247,7 @@ class DashboardFinanceiroView extends TPage
 
             //total do mes em monetário
             //$sthContMes = $conn->prepare("SELECT COUNT(valor) as valor_mes FROM conta_receber  WHERE MONTH(data_vencimento) = MONTH(NOW()) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ? "); 
-            $sthContMes = $conn->prepare("SELECT COUNT(valor) as valor_mes FROM conta_receber  WHERE MONTH(data_vencimento) = MONTH(NOW()) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ? AND gera_nfse = 'S'"); 
+            $sthContMes = $conn->prepare("SELECT COUNT(valor) as valor_mes FROM conta_receber  WHERE MONTH(data_vencimento) = MONTH(NOW()) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ?"); 
             $sthContMes->execute([TSession::getValue('userunitid')]);
             $result2 = $sthContMes->fetchAll();
 
@@ -280,7 +280,7 @@ class DashboardFinanceiroView extends TPage
 
             //Select em conta a receber inadiplentes
             $sthVI = $conn->prepare("SELECT SUM(valor) as valor FROM  `conta_receber` 
-            WHERE data_vencimento < CURDATE( ) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ? AND gera_nfse = 'S'"); 
+            WHERE data_vencimento < CURDATE( ) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ?"); 
 
             $sthVI->execute([TSession::getValue('userunitid')]);
             $result5 = $sthVI->fetchAll();
@@ -291,7 +291,7 @@ class DashboardFinanceiroView extends TPage
             }
 
             $sthContInadiplencia = $conn->prepare("SELECT COUNT(valor) as valor FROM  conta_receber 
-            WHERE data_vencimento < CURDATE( ) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ? AND gera_nfse = 'S'"); 
+            WHERE data_vencimento < CURDATE( ) AND baixa = 'N' AND deleted_at IS NULL AND unit_id = ?"); 
 
             $sthContInadiplencia->execute([TSession::getValue('userunitid')]);
             $result6 = $sthContInadiplencia->fetchAll();
